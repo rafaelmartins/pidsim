@@ -52,41 +52,24 @@ class Polynomial(list):
     def __mul__(self, term):
         a = self[:]
         b = term[:]
-        
-        ind = 0
-        aux = []
-        for x in a:
-            aux.append((ind, x))
-            ind += 1
-        a = aux
-        
-        ind = 0
-        aux = []
-        for x in b:
-            aux.append((ind, x))
-            ind += 1
-        b = aux
-        
         result = []
-        
-        for ord1, coef1 in a:
-            for ord2, coef2 in b:
-                result.append((ord1 + ord2, coef1 * coef2))
-        
+        j = 0
+        for x in a:
+            i = 0
+            for y in b:
+                result.append((i + j, x * y))
+                i += 1
+            j += 1
         ord_res = 0
-        
         for x, y in result:
             if x > ord_res:
                 ord_res = x
-        
         resp = [0 for x in range(ord_res + 1)]
-        
         for x in range(ord_res + 1):
             resp[x] = 0
             for c, d in result:
                 if c == x:
                     resp[x] += d
-        
         return Polynomial(resp)
         
 
