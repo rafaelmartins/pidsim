@@ -30,7 +30,7 @@ def Euler(g, sample_time, total_time):
 
     ss = StateSpace(g)
     
-    samples = int(total_time/sample_time)
+    samples = int(total_time/sample_time) + 1
     
     t = [sample_time * a for a in range(samples)]
     
