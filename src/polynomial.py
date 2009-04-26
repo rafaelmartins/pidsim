@@ -1,7 +1,27 @@
-#!/usr/bin/env python
+#-*- encoding: utf-8 -*-
+#
+#       polinomyal.py
+#       
+#       Copyright 2008-2009 Rafael G. Martins <rafael@rafaelmartins.com>
+#       
+#       This program is free software; you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation; either version 2 of the License.
+#       
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#       
+#       You should have received a copy of the GNU General Public License
+#       along with this program; if not, write to the Free Software
+#       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#       MA 02110-1301, USA.
 
 class Polynomial(list):
-  
+    
+    var = 'x'
+    
     def __str__(self):
         poly = self[:]
         poly.reverse()
@@ -18,7 +38,7 @@ class Polynomial(list):
             if abs(coefficient) > 1 or order == 0:
                 response += str(abs(coefficient))
             if order > 0:
-                response += 'x'
+                response += self.var
             if order > 1:
                 response += '^' + str(order)
         return response
@@ -71,11 +91,17 @@ class Polynomial(list):
                 if c == x:
                     resp[x] += d
         return Polynomial(resp)
-        
+
+poly = Polynomial
 
 if __name__ == '__main__':
+    
     a = Polynomial([1,2,3])
-    b = Polynomial([1,2,3])
+    b = Polynomial([2,2,3])
+    
     print a
     print b
+    print a + b
+    print a - b
     print a * b
+    
