@@ -18,13 +18,12 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-import matplotlib.pyplot as plt
 from transferfunction import TransferFunction
 from statespace import StateSpace
 from matrix import Matrix, Zeros, Identity
 from error import ControlSystemsError
 
-def euler(g, sample_time, total_time, fig=None):
+def Euler(g, sample_time, total_time):
     
     if not isinstance(g, TransferFunction):
         raise ControlSystemsError('Parameter must be a Transfer Function')
@@ -51,14 +50,10 @@ def euler(g, sample_time, total_time, fig=None):
         
         y.append(aux)
 
-    if fig:
-        fig.plot(t, y)
-    else:
-        plt.plot(t, y)
-        plt.show()
+    return t, y
 
 if __name__ == '__main__':
    
     g = TransferFunction([1], [1, 2, 3])
     
-    euler(g, 0.01, 10)
+    print Euler(g, 0.01, 10)
