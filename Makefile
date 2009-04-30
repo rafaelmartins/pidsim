@@ -3,7 +3,7 @@ PWD=`pwd`
 PREFIX=/usr
 DESTDIR=/
 PKGNAME=python-controlsystems
-VERSION=0.1
+VERSION=0.2
 
 all: clean
 	$(PYTHON) setup.py build
@@ -16,7 +16,6 @@ clean:
 	rm -rf build/
 
 distclean: clean
-	rm -rf /tmp/$(PKGNAME)
 	rm -rf $(PWD)/$(PKGNAME)*
 
 tmp-dir: distclean
@@ -30,3 +29,4 @@ tmp-dir: distclean
 dist: tmp-dir
 	cd /tmp/$(PKGNAME)/files && tar -cvjf /tmp/$(PKGNAME)/dist/$(PKGNAME)-$(VERSION).tar.bz2 $(PKGNAME)-$(VERSION)
 	cp /tmp/$(PKGNAME)/dist/* $(PWD)
+	rm -rf /tmp/$(PKGNAME)

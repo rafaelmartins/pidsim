@@ -59,6 +59,9 @@ class Matrix(list):
 
     def __add__(self, mat):
         
+        if not isinstance(mat, Matrix):
+            raise ControlSystemsError('Operands must be matrices')
+        
         rows = self.rows > mat.rows and self.rows or mat.rows
         cols = self.cols > mat.cols and self.cols or mat.cols
         
@@ -85,7 +88,7 @@ class Matrix(list):
     def __mul__(self, mat):
         
         if not isinstance(mat, Matrix):
-            raise ControlSystemsError('Use only matrices when multiplying')
+            raise ControlSystemsError('Operands must be matrices')
         
         if self.cols != mat.rows:
             raise ControlSystemsError('Invalid Matrices size for multiply')

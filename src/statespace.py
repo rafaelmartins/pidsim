@@ -92,6 +92,8 @@ class StateSpace(object):
         ret += str(self.d) + '\n'
         return ret
 
+ss = StateSpace
+
 if __name__ == '__main__':
     
     print StateSpace([

@@ -45,12 +45,17 @@ class Polynomial(list):
     
 
     def __add__(self, term):
+        
+        if not isinstance(term, Polynomial):
+            raise ControlSystemsError('Operands must be polynomials')
+        
         a = self[:]
         a.reverse()
         b = term[:]
         b.reverse()
         order = (len(a) > len(b)) and len(a) or len(b)
         result = [0 for x in range(order)]
+        
         for x in range(order):
             try:
                 result[x] += a[x]
@@ -60,36 +65,48 @@ class Polynomial(list):
                 result[x] += b[x]
             except IndexError:
                 pass
+        
         result.reverse()
         return Polynomial(result)
 
 
     def __sub__(self, term):
+        
         term_aux = [-x for x in term]
         return self.__add__(term_aux)
     
     
     def __mul__(self, term):
+        
+        if not isinstance(term, Polynomial):
+            raise ControlSystemsError('Operands must be polynomials')
+        
         a = self[:]
         b = term[:]
         result = []
         j = 0
+        
         for x in a:
             i = 0
             for y in b:
                 result.append((i + j, x * y))
                 i += 1
             j += 1
+        
         ord_res = 0
+        
         for x, y in result:
             if x > ord_res:
                 ord_res = x
+        
         resp = [0 for x in range(ord_res + 1)]
+        
         for x in range(ord_res + 1):
             resp[x] = 0
             for c, d in result:
                 if c == x:
                     resp[x] += d
+        
         return Polynomial(resp)
 
 poly = Polynomial
