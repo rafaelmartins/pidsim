@@ -3,7 +3,7 @@ PWD=`pwd`
 PREFIX=/usr
 DESTDIR=/
 PKGNAME=python-controlsystems
-VERSION=0.2
+VERSION=0.2.1
 
 all: clean
 	$(PYTHON) setup.py build

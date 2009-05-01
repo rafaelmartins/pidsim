@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='python-controlsystems',
-    version='0.2',
+    version='0.2.1',
     license='GPL2',
     description='A python library for study of control systems',
     author=['Rafael G. Martins'],
