@@ -56,7 +56,7 @@ class TransferFunction(object):
         den = self.den[:]
         
         mdc = 1
-        for i in range(1, max([max(num), max(den)])):
+        for i in range(1, int(max([max(num), max(den)]))):
             die = 0
             if len(self.num) == 1:
                 mdc = self.num[0]
