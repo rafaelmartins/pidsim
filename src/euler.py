@@ -43,12 +43,7 @@ def Euler(g, sample_time, total_time):
         
         x = ((eye + ss.a.mult(sample_time)) * x) + ss.b.mult(sample_time)
         
-        aux = 0
-        
-        for j in range(ss.c.cols):
-            aux += x[j][0] * ss.c[0][j]
-        
-        y.append(aux)
+        y.append((ss.c*x)[0][0] + ss.d[0][0])
 
     return t, y
 
