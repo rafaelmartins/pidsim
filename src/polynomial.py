@@ -25,6 +25,8 @@ class Polynomial(list):
     var = 'x'
     
     def __str__(self):
+        
+        #bug: fix first term negative
         poly = self[:]
         poly.reverse()
         response = ''
@@ -74,7 +76,7 @@ class Polynomial(list):
 
     def __sub__(self, term):
         
-        term_aux = [-x for x in term]
+        term_aux = Polynomial([-x for x in term])
         return self.__add__(term_aux)
     
     
@@ -119,6 +121,14 @@ class Polynomial(list):
         if len(a) > len(self):
             raise ControlSystemsError('Invalid sizes to division')
         
+    def mult(self, val):
+        
+        l = []
+        
+        for i in range(len(self)):
+            l.append(self[i]*val)
+        
+        return Polynomial(l)
     
     def Zero(self, order):
         
@@ -134,11 +144,11 @@ poly = Polynomial
 if __name__ == '__main__':
     
     a = Polynomial([1,2,3])
-    b = Polynomial([2,2,3])
+    b = Polynomial([1,2,3])
     
     print a
     print b
     print a + b
     print a - b
     print a * b
-    
+    print a.mult(2)

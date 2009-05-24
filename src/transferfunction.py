@@ -70,7 +70,11 @@ class TransferFunction(object):
                 if not die:
                     mdc = i
         return TransferFunction(num, den).div(mdc)
-                
+    
+    def mult(self, a):
+        
+        return TransferFunction(self.num.mult(a), self.den.mult(a))
+    
     def div(self, a):
         num = self.num[:]
         den = self.den[:]
@@ -88,9 +92,11 @@ if __name__ == '__main__':
     a = TransferFunction([1,2], [1,2,3])
     b = TransferFunction([1], [1,0,0])
     
-    #print a
-    #print
-    #print b
-    #print
-    #print a * b
-    print a+b
+    print a
+    print
+    print b
+    print
+    print a * b
+    print
+    print a.mult(2)
+    
