@@ -84,7 +84,13 @@ class TransferFunction(object):
         for i in range(len(den)):
             den[i] /= a
         return TransferFunction(num, den)
-
+    
+    def feedback_unit(self):
+        
+        aux = TransferFunction([1], [1]) + self
+        return TransferFunction(self.num * aux.den, self.den * aux.num)
+        
+        
 tf = TransferFunction
 
 if __name__ == '__main__':
@@ -99,4 +105,5 @@ if __name__ == '__main__':
     print a * b
     print
     print a.mult(2)
-    
+    print
+    print a.feedback_unit()
