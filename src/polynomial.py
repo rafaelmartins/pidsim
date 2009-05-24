@@ -111,6 +111,24 @@ class Polynomial(list):
         
         return Polynomial(resp)
 
+    def __div__(self, a):
+        
+        if not isinstance(term, Polynomial):
+            raise ControlSystemsError('Operands must be polynomials')
+        
+        if len(a) > len(self):
+            raise ControlSystemsError('Invalid sizes to division')
+        
+    
+    def Zero(self, order):
+        
+        zero = []
+        for i in range(order):
+            zero.append(0)
+        
+        return Polynomial(zero)
+        
+
 poly = Polynomial
 
 if __name__ == '__main__':

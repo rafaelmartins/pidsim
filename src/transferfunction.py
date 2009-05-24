@@ -40,6 +40,46 @@ class TransferFunction(object):
         num = self.num * tf.num
         den = self.den * tf.den
         return TransferFunction(num, den)
+    
+    def __add__(self, tf):
+        num = (self.num*tf.den) + (tf.num*self.den)
+        den = self.den * tf.den
+        return TransferFunction(num, den)
+    
+    def __sub__(self, tf):
+        num = (self.num*tf.den) - (tf.num*self.den)
+        den = self.den * tf.den
+        return TransferFunction(num, den)
+    
+    def simplify(self):
+        num = self.num[:]
+        den = self.den[:]
+        
+        mdc = 1
+        for i in range(1, max([max(num), max(den)])):
+            die = 0
+            if len(self.num) == 1:
+                mdc = self.num[0]
+            else:
+                for j in range(len(num)):
+                    if num[j] % i != 0:
+                        die = 1
+                for j in range(len(den)):
+                    if den[j] % i != 0:
+                        die = 1
+                if not die:
+                    mdc = i
+        return TransferFunction(num, den).div(mdc)
+                
+    def div(self, a):
+        num = self.num[:]
+        den = self.den[:]
+        
+        for i in range(len(num)):
+            num[i] /= a
+        for i in range(len(den)):
+            den[i] /= a
+        return TransferFunction(num, den)
 
 tf = TransferFunction
 
@@ -48,8 +88,9 @@ if __name__ == '__main__':
     a = TransferFunction([1,2], [1,2,3])
     b = TransferFunction([1], [1,0,0])
     
-    print a
-    print
-    print b
-    print
-    print a * b
+    #print a
+    #print
+    #print b
+    #print
+    #print a * b
+    print a+b
