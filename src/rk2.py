@@ -1,6 +1,6 @@
 #-*- encoding: utf-8 -*-
 #
-#       euler.py
+#       rk2.py
 #       
 #       Copyright 2009 Rafael G. Martins <rafael@rafaelmartins.com>
 #       
@@ -23,7 +23,7 @@ from statespace import StateSpace
 from matrix import Matrix, Zeros, Identity
 from error import ControlSystemsError
 
-def Euler(g, sample_time, total_time):
+def RK2(g, sample_time, total_time):
     
     if not isinstance(g, TransferFunction):
         raise ControlSystemsError('Parameter must be a Transfer Function')
@@ -39,11 +39,16 @@ def Euler(g, sample_time, total_time):
     
     eye = Identity(ss.a.rows)
     
-    a1 = eye + ss.a.mult(sample_time)
-    a2 = ss.b.mult(sample_time)
+    a1 = ss.a * ss.a
+    a2 = ss.a.mult(2) + a1.mult(sample_time)
+    a3 = a2.mult(0.5)
+    a4 = ss.a.mult(sample_time)
+    a5 = a4*ss.b + ss.b.mult(2)
+    a6 = eye + a3.mult(sample_time)
+    a7 = a5.mult(sample_time/2)
     
     for i in range(samples):
-        x = a1*x + a2
+        x = a6*x + a7
         y.append((ss.c*x)[0][0] + ss.d[0][0])
 
     return t, y
@@ -52,4 +57,4 @@ if __name__ == '__main__':
    
     g = TransferFunction([1], [1, 2, 3])
     
-    print Euler(g, 0.01, 10)
+    print RK2(g, 0.01, 10)
