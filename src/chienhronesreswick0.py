@@ -18,7 +18,7 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-from aux import get_time_near
+from gettimenear import get_time_near
 
 def ChienHronesReswick0(g, sample_time, total_time, n_method):
     
