@@ -32,7 +32,7 @@ def CohenCoon(g, sample_time, total_time, n_method):
     L = 1.5*(t28-(t63/3))
     
     R = L/tau
-    kp = tau/(L*((4/3)+(R/4)))
+    kp = tau/(k*L*((4/3)+(R/4)))
     Ti = L*((32 + 6*R)/(13 + 8*R))
     Td = 4/(13 + 8*R)
     
