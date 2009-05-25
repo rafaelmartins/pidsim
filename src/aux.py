@@ -1,6 +1,6 @@
 #-*- encoding: utf-8 -*-
 #
-#       zieglernichols.py
+#       aux.py
 #       
 #       Copyright 2009 Rafael G. Martins <rafael@rafaelmartins.com>
 #       
@@ -18,33 +18,11 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-from aux import get_time_near
-
-def ZieglerNichols(g, sample_time, total_time, n_method):
-    
-    t, y = n_method(g, sample_time, total_time)
-    
-    k = y[-1]
-    
-    t63 = get_time_near(t, y, 0.632*k)
-    t28 = get_time_near(t, y, 0.28*k)
-    tau = 1.5*(t63-t28)
-    L = 1.5*(t28-(t63/3))
-    
-    kp = (1.2*tau)/(k*L)
-    Ti = 2*L
-    Td = L/2
-    
-    ki = kp/Ti
-    kd = kp*Td
-    
-    return kp, ki, kd
-
-if __name__ == '__main__':
-    
-    from rk4 import RK4
-    from transferfunction import TransferFunction
-    
-    g = TransferFunction([1], [1, 2, 3])
-    
-    print ZieglerNichols(g, 0.01, 10, RK4)
+def get_time_near(t, y, point):
+    tolerance_range = max(y) - min(y)
+    for i in range(len(y)):
+        tolerance = abs(y[i] - point)
+        if tolerance < tolerance_range:
+            my_t = t[i]
+            tolerance_range = tolerance
+    return my_t

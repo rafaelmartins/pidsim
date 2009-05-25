@@ -1,6 +1,6 @@
 #-*- encoding: utf-8 -*-
 #
-#       zieglernichols.py
+#       chienhronesreswick20.py
 #       
 #       Copyright 2009 Rafael G. Martins <rafael@rafaelmartins.com>
 #       
@@ -20,7 +20,7 @@
 
 from aux import get_time_near
 
-def ZieglerNichols(g, sample_time, total_time, n_method):
+def ChienHronesReswick20(g, sample_time, total_time, n_method):
     
     t, y = n_method(g, sample_time, total_time)
     
@@ -31,9 +31,9 @@ def ZieglerNichols(g, sample_time, total_time, n_method):
     tau = 1.5*(t63-t28)
     L = 1.5*(t28-(t63/3))
     
-    kp = (1.2*tau)/(k*L)
-    Ti = 2*L
-    Td = L/2
+    kp = (0.95*tau)/(k*L)
+    Ti = 1.4*tau
+    Td = 0.47*L
     
     ki = kp/Ti
     kd = kp*Td
@@ -47,4 +47,4 @@ if __name__ == '__main__':
     
     g = TransferFunction([1], [1, 2, 3])
     
-    print ZieglerNichols(g, 0.01, 10, RK4)
+    print ChienHronesReswick20(g, 0.01, 10, RK4)
