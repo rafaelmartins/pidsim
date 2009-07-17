@@ -1,3 +1,17 @@
+"""PID Tuning Methods
+
+This module implements some PID tuning methods, based on reaction curve.
+Take care to choose a total time after system stabilization. This will
+be fixed soon.
+
+See: http://wikis.controltheorypro.com/index.php?title=PID_Control
+
+"""
+
+#TODO: find stabilization time
+#TODO: error handling
+#TODO: improve documentation
+
 __all__ = [
     'ZieglerNichols',
     'CohenCoon',
@@ -7,6 +21,22 @@ __all__ = [
 
 
 def ZieglerNichols(g, sample_time, total_time, n_method):
+    """ZieglerNichols tuning method
+    
+    Returns 'kp', 'ki' and 'kd' gains to an PID controller, using
+    Ziegler-Nichols tuning method, based on reaction curve. As example
+    (using Euler to discretize):
+    
+    >>> g = TransferFunction([1], [1, 2, 3])
+    >>> kp, ki, kd = ZieglerNichols(g, 0.01, 10, Euler)
+    >>> print kp
+    7.25920108978
+    >>> print ki
+    11.9003296554
+    >>> print kd
+    1.10702816619
+    
+    """
     
     t, y = n_method(g, sample_time, total_time)
     
@@ -28,6 +58,22 @@ def ZieglerNichols(g, sample_time, total_time, n_method):
 
 
 def CohenCoon(g, sample_time, total_time, n_method):
+    """CohenCoon tuning method
+    
+    Returns 'kp', 'ki' and 'kd' gains to an PID controller, using
+    Cohen-Coon tuning method, based on reaction curve. As example
+    (using Euler to discretize):
+    
+    >>> g = TransferFunction([1], [1, 2, 3])
+    >>> kp, ki, kd = CohenCoon(g, 0.01, 10, Euler)
+    >>> print kp
+    5.38204782425
+    >>> print ki
+    8.56051231163
+    >>> print kd
+    1.26879134141
+    
+    """
     
     t, y = n_method(g, sample_time, total_time)
     
@@ -50,6 +96,22 @@ def CohenCoon(g, sample_time, total_time, n_method):
 
 
 def ChienHronesReswick0(g, sample_time, total_time, n_method):
+    """ChienHronesReswick0 tuning method
+    
+    Returns 'kp', 'ki' and 'kd' gains to an PID controller, using
+    Chien-Hrones-Reswick (0%) tuning method, based on reaction curve.
+    As example (using Euler to discretize):
+    
+    >>> g = TransferFunction([1], [1, 2, 3])
+    >>> kp, ki, kd = ChienHronesReswick0(g, 0.01, 10, Euler)
+    >>> print kp
+    3.62960054489
+    >>> print ki
+    5.90178950389
+    >>> print kd
+    0.553514083096
+    
+    """
     
     t, y = n_method(g, sample_time, total_time)
     
@@ -71,6 +133,22 @@ def ChienHronesReswick0(g, sample_time, total_time, n_method):
 
 
 def ChienHronesReswick20(g, sample_time, total_time, n_method):
+    """ChienHronesReswick20 tuning method
+    
+    Returns 'kp', 'ki' and 'kd' gains to an PID controller, using
+    Chien-Hrones-Reswick (20%) tuning method, based on reaction curve.
+    As example (using Euler to discretize):
+    
+    >>> g = TransferFunction([1], [1, 2, 3])
+    >>> kp, ki, kd = ChienHronesReswick20(g, 0.01, 10, Euler)
+    >>> print kp
+    5.74686752941
+    >>> print ki
+    6.6746428913
+    >>> print kd
+    0.823813460341
+    
+    """
     
     t, y = n_method(g, sample_time, total_time)
     
@@ -92,6 +170,12 @@ def ChienHronesReswick20(g, sample_time, total_time, n_method):
 
 
 def get_time_near(t, y, point):
+    """Get time near
+    
+    Auxiliary function.
+    Returns the time of the point more near of the desired 'point'.
+    
+    """
     
     tolerance_range = max(y) - min(y)
     
