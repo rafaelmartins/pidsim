@@ -329,8 +329,8 @@ class Matrix(list):
     def __call__(self, row, col=None):
         """Callable object
         
-        This method returns a row Matrix object, if an parameter is
-        used, and an number, if two parameters are used, as example:
+        This method returns a row Matrix object, if a parameter is
+        used, and a number, if two parameters are used, as example:
         
         >>> a = Matrix([
         ...     [1, 2],
