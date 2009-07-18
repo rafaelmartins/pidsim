@@ -1,0 +1,26 @@
+Python Control Systems core package
+
+This package implements a basic toolbox for study of Control Systems,
+using Python.
+
+To use the examples, please initialize this package, using:
+
+>>> from controlsystems.types import *
+>>> from controlsystems.discretization import *
+>>> from controlsystems.pid_tuning import *
+
+If you need some help with use, or can help the development, please
+contact autor via email or file a issue on project page:
+
+http://pycontrolsystems.com/projects/show/controlsystems
+
+All help is welcome! :)
+
+========================================================================
+
+To install type:
+# python setup.py install
+
+To build doc:
+# cd src/
+# make
