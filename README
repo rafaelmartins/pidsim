@@ -21,6 +21,6 @@ All help is welcome! :)
 To install type:
 # python setup.py install
 
-To build doc:
-# cd src/
+To build doc (you'll need epydoc):
+# cd doc/
 # make

@@ -4,10 +4,10 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from sys import path
-from os.path import abspath
-path.insert(0, abspath('src'))
+from os.path import abspath, dirname
+path.insert(0, '%s/src' % dirname(__file__))
 
-from setuptools import setup
+from distutils.core import setup
 import controlsystems
 
 setup(

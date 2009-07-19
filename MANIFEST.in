@@ -1,2 +1,3 @@
-graft doc
 include LICENSE
+include MANIFEST.in
+include doc/Makefile 
