@@ -8,6 +8,7 @@ To use the examples, please initialize this package, using:
 >>> from controlsystems.types import *
 >>> from controlsystems.discretization import *
 >>> from controlsystems.pid_tuning import *
+>>> from controlsystems.error import *
 
 If you need some help with use, or can help the development, please
 contact autor via email or file a issue on project page:
