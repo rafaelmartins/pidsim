@@ -17,7 +17,7 @@ distclean: clean
 doc: clean
 	mkdir -p $(PWD)/$(PACKAGE)-doc/{pdf,html,temp}
 	$(EPYDOC) --name="$(PACKAGE)" --html --no-frames -o $(PWD)/$(PACKAGE)-doc/html/ $(PWD)/../src/$(PKGNAME)
-	$(EPYDOC) --name="$(PACKAGE)" --pdf -o $(PWD)/$(PACKAGE)-doc/temp/ $(PWD)/../src/$(PKGNAME)
+	$(EPYDOC) -v --name="$(PACKAGE)" --pdf -o $(PWD)/$(PACKAGE)-doc/temp/ $(PWD)/../src/$(PKGNAME)
 	mkdir -p $(PWD)/$(PACKAGE)-doc/pdf
 	mv $(PWD)/$(PACKAGE)-doc/temp/api.pdf $(PWD)/$(PACKAGE)-doc/pdf/$(PACKAGE).pdf
 	rm -rfv $(PWD)/$(PACKAGE)-doc/temp

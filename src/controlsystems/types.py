@@ -1,7 +1,7 @@
 """Data Types for Control Systems
 
-This module implements some data types of Control Systems structures
-like Transfer Functions, State Space models and others.
+This module implements some data types for Control Systems,like:
+Transfer Functions, State-Space models and others.
 
 """
 
@@ -20,11 +20,11 @@ class Polynomial(list):
     """Polynomial type
     
     This class implements the Polynomial type, based on Python lists.
-    The polinomial object is an list of coeficients, as example:
+    The polinomial object is a list of coeficients, for example:
     
-    >>> a = Polynomial([1, 2, 3])
-    >>> print a
-    x^2 + 2x + 3
+        >>> a = Polynomial([1, 2, 3])
+        >>> print a
+        x^2 + 2x + 3
     
     """
     
@@ -36,7 +36,7 @@ class Polynomial(list):
         This method returns the string representation of polynomials,
         like:
         
-        x^2 + 2x + 3
+            x^2 + 2x + 3
         
         """
         
@@ -79,13 +79,13 @@ class Polynomial(list):
         This method returns a Polynomial object with the result of the
         addition of 'self' Polynomial and 'term' Polynomial, like:
         
-        >>> a = Polynomial([1, 2, 3])
-        >>> b = Polynomial([2, 3, 4])
-        >>> c = a + b
-        >>> print c
-        3x^2 + 5x + 7
-        >>> type(c)
-        <class 'controlsystems.types.Polynomial'>
+            >>> a = Polynomial([1, 2, 3])
+            >>> b = Polynomial([2, 3, 4])
+            >>> c = a + b
+            >>> print c
+            3x^2 + 5x + 7
+            >>> type(c)
+            <class 'controlsystems.types.Polynomial'>
         
         """
         
@@ -122,13 +122,13 @@ class Polynomial(list):
         This method returns a Polynomial object with the result of the
         subtraction of 'self' Polynomial and 'term' Polynomial, like:
         
-        >>> a = Polynomial([2, 3, 4])
-        >>> b = Polynomial([1, 2, 3])
-        >>> c = a - b
-        >>> print c
-        x^2 + x + 1
-        >>> type(c)
-        <class 'controlsystems.types.Polynomial'>
+            >>> a = Polynomial([2, 3, 4])
+            >>> b = Polynomial([1, 2, 3])
+            >>> c = a - b
+            >>> print c
+            x^2 + x + 1
+            >>> type(c)
+            <class 'controlsystems.types.Polynomial'>
         
         This method is based on __add__ method
         
@@ -145,13 +145,13 @@ class Polynomial(list):
         This method returns a Polynomial object with the result of the
         multiplication of 'self' Polynomial and 'term' Polynomial, like:
         
-        >>> a = Polynomial([1, 2, 3])
-        >>> b = Polynomial([2, 3, 4])
-        >>> c = a * b
-        >>> print c
-        2x^4 + 7x^3 + 16x^2 + 17x + 12
-        >>> type(c)
-        <class 'controlsystems.types.Polynomial'>
+            >>> a = Polynomial([1, 2, 3])
+            >>> b = Polynomial([2, 3, 4])
+            >>> c = a * b
+            >>> print c
+            2x^4 + 7x^3 + 16x^2 + 17x + 12
+            >>> type(c)
+            <class 'controlsystems.types.Polynomial'>
         
         """
         
@@ -214,12 +214,12 @@ class Polynomial(list):
         This method returns a Polynomial object with the result of the
         multiplication of 'self' Polynomial and 'val' number, like:
         
-        >>> a = Polynomial([1, 2, 3])
-        >>> b = a.mult(5)
-        >>> print b
-        5x^2 + 10x + 15
-        >>> type(b)
-        <class 'controlsystems.types.Polynomial'>
+            >>> a = Polynomial([1, 2, 3])
+            >>> b = a.mult(5)
+            >>> print b
+            5x^2 + 10x + 15
+            >>> type(b)
+            <class 'controlsystems.types.Polynomial'>
         
         """
         
@@ -239,9 +239,9 @@ class Polynomial(list):
         This method returns a Polynomial object initialized with zeros,
         like:
         
-        >>> a = Polynomial()
-        >>> a.Zero(4)
-        [0, 0, 0, 0]
+            >>> a = Polynomial()
+            >>> a.Zero(4)
+            [0, 0, 0, 0]
         
         """
         
@@ -259,24 +259,24 @@ class Matrix(list):
     """Matrix type
     
     This class implements the Matrix type, based on Python lists.
-    The matrix object is an list of lists and have 2 properties ('cols'
-    and 'rows'), that store the sizes of matrix, as example:
+    The matrix object is a list of lists and have 2 properties ('cols'
+    and 'rows'), that store the sizes of matrix, like:
     
-    >>> a = Matrix([
-    ...     [1, 2, 3],
-    ...     [2, 3, 4],
-    ...     [3, 4, 5],
-    ... ])
-    >>>
-    >>> print a
-    1    2    3
-    2    3    4
-    3    4    5
-    >>>
-    >>> a.rows
-    3
-    >>> a.cols
-    3
+        >>> a = Matrix([
+        ...     [1, 2, 3],
+        ...     [2, 3, 4],
+        ...     [3, 4, 5],
+        ... ])
+        >>>
+        >>> print a
+        1    2    3
+        2    3    4
+        3    4    5
+        >>>
+        >>> a.rows
+        3
+        >>> a.cols
+        3
 
     """
     
@@ -309,9 +309,9 @@ class Matrix(list):
         This method returns the string representation of matrices,
         like:
         
-        1    2    3
-        2    3    4
-        3    4    5
+            1    2    3
+            2    3    4
+            3    4    5
         
         """
         
@@ -330,24 +330,24 @@ class Matrix(list):
         """Callable object
         
         This method returns a row Matrix object, if a parameter is
-        used, and a number, if two parameters are used, as example:
+        used, and a number, if two parameters are used, like:
         
-        >>> a = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> b = a(1)
-        >>> print b
-        3    4
-        >>> type(b)
-        <class 'controlsystems.types.Matrix'>
-        >>>
-        >>> c = a(0, 0)
-        >>> print c
-        1
-        >>> type(c)
-        <type 'int'>
+            >>> a = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> b = a(1)
+            >>> print b
+            3    4
+            >>> type(b)
+            <class 'controlsystems.types.Matrix'>
+            >>>
+            >>> c = a(0, 0)
+            >>> print c
+            1
+            >>> type(c)
+            <type 'int'>
         
         """
         
@@ -363,22 +363,22 @@ class Matrix(list):
         This method returns a Matrix object with the result of the
         addition of 'self' MAtrix and 'mat' Matrix, like:
         
-        >>> a = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> b = Matrix([
-        ...     [2, 3],
-        ...     [4, 5],
-        ... ])
-        >>>
-        >>> c = a + b
-        >>> print c
-        3    5
-        7    9
-        >>> type(c)
-        <class 'controlsystems.types.Matrix'>
+            >>> a = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> b = Matrix([
+            ...     [2, 3],
+            ...     [4, 5],
+            ... ])
+            >>>
+            >>> c = a + b
+            >>> print c
+            3    5
+            7    9
+            >>> type(c)
+            <class 'controlsystems.types.Matrix'>
         
         """
         
@@ -410,23 +410,23 @@ class Matrix(list):
         This method returns a Matrix object with the result of the
         subtraction of 'self' Matrix and 'mat' Matrix, like:
         
-        >>> a = Matrix([
-        ...     [2, 3],
-        ...     [4, 5],
-        ... ])
-        >>>
-        >>> b = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> c = a - b
-        >>> print c
-        1    1	
-        1    1
-        >>>
-        >>> type(c)
-        <class 'controlsystems.types.Matrix'>
+            >>> a = Matrix([
+            ...     [2, 3],
+            ...     [4, 5],
+            ... ])
+            >>>
+            >>> b = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> c = a - b
+            >>> print c
+            1    1  
+            1    1
+            >>>
+            >>> type(c)
+            <class 'controlsystems.types.Matrix'>
         
         This method is based on __add__ method
         
@@ -443,23 +443,23 @@ class Matrix(list):
         This method returns a Polynomial object with the result of the
         multiplication of 'self' Polynomial and 'term' Polynomial, like:
         
-        >>> a = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> b = Matrix([
-        ...     [2, 3],
-        ...     [4, 5],
-        ... ])
-        >>>
-        >>> c = a * b
-        >>> print c
-        10    13
-        22    29
-        >>>
-        >>> type(c)
-        <class 'controlsystems.types.Matrix'>
+            >>> a = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> b = Matrix([
+            ...     [2, 3],
+            ...     [4, 5],
+            ... ])
+            >>>
+            >>> c = a * b
+            >>> print c
+            10    13
+            22    29
+            >>>
+            >>> type(c)
+            <class 'controlsystems.types.Matrix'>
         
         """
         
@@ -485,18 +485,18 @@ class Matrix(list):
         This method returns a Matrix object with the result of the
         multiplication of 'self' Polynomial and 'num' number, like:
         
-        >>> a = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> b = a.mult(5)
-        >>> print b
-        5    10
-        15   20
-        >>>
-        >>> type(b)
-        <class 'controlsystems.types.Matrix'>
+            >>> a = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> b = a.mult(5)
+            >>> print b
+            5    10
+            15   20
+            >>>
+            >>> type(b)
+            <class 'controlsystems.types.Matrix'>
         
         """
         
@@ -516,18 +516,18 @@ class Matrix(list):
         This method returns a Matrix object with the transpose of
         'self' Matrix, like:
         
-        >>> a = Matrix([
-        ...     [1, 2],
-        ...     [3, 4],
-        ... ])
-        >>>
-        >>> b = a.transpose()
-        >>> print b
-        1    3
-        2    4
-        >>>
-        >>> type(b)
-        <class 'controlsystems.types.Matrix'>
+            >>> a = Matrix([
+            ...     [1, 2],
+            ...     [3, 4],
+            ... ])
+            >>>
+            >>> b = a.transpose()
+            >>> print b
+            1    3
+            2    4
+            >>>
+            >>> type(b)
+            <class 'controlsystems.types.Matrix'>
         
         """
         
@@ -545,18 +545,18 @@ def ZerosMatrix(rows, cols=None):
         
     This method returns a Matrix object with zeros, like:
     
-    >>> a = ZerosMatrix(2, 4)
-    >>> print a
-    0    0    0    0
-    0    0    0    0
-    >>>
-    >>> b = ZerosMatrix(2)
-    >>> print b
-    0    0
-    0    0
-    >>>
-    >>> type(b)
-    <class 'controlsystems.types.Matrix'>
+        >>> a = ZerosMatrix(2, 4)
+        >>> print a
+        0    0    0    0
+        0    0    0    0
+        >>>
+        >>> b = ZerosMatrix(2)
+        >>> print b
+        0    0
+        0    0
+        >>>
+        >>> type(b)
+        <class 'controlsystems.types.Matrix'>
     
     """
     
@@ -579,15 +579,15 @@ def IdentityMatrix(order):
     This method returns a Matrix object with zeros, and ones only on
     main diagonal, like:
     
-    >>> a = IdentityMatrix(4)
-    >>> print a
-    1    0    0    0
-    0    1    0    0
-    0    0    1    0
-    0    0    0    1
-    >>>
-    >>> type(a)
-    <class 'controlsystems.types.Matrix'>
+        >>> a = IdentityMatrix(4)
+        >>> print a
+        1    0    0    0
+        0    1    0    0
+        0    0    1    0
+        0    0    0    1
+        >>>
+        >>> type(a)
+        <class 'controlsystems.types.Matrix'>
     
     """
     
@@ -609,15 +609,15 @@ class TransferFunction(object):
     
     This class implements the TransferFunction type, based on
     Polynomial type. The transfer function object uses 2 polynomials
-    to store numerator and denominator, as example:
+    to store numerator and denominator, like:
     
-    >>> a = TransferFunction([1], [1, 2, 3])
-    >>> print a
-    Transfer Function:
-
-         1      
-    ------------
-    s^2 + 2s + 3
+        >>> a = TransferFunction([1], [1, 2, 3])
+        >>> print a
+        Transfer Function:
+        .
+        .    1      
+        ------------
+        s^2 + 2s + 3
 
     """
     
@@ -641,11 +641,11 @@ class TransferFunction(object):
         This method returns the string representation of matrices,
         like:
         
-        Transfer Function:
-
-             1      
-        ------------
-        s^2 + 2s + 3
+            Transfer Function:
+            .
+            .     1      
+            ------------
+            s^2 + 2s + 3
         
         """
         
@@ -667,18 +667,18 @@ class TransferFunction(object):
         of the addition of 'self' TransferFunction and 'tf'
         TransferFunction, like:
         
-        >>> a = TransferFunction([1], [1, 2, 3])
-        >>> b = TransferFunction([1], [2, 3, 4])
-        >>> c = a + b
-        >>> print c
-        Transfer Function:
-
-                3s^2 + 5s + 7         
-        ------------------------------
-        2s^4 + 7s^3 + 16s^2 + 17s + 12
-        
-        >>> type(c)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([1], [1, 2, 3])
+            >>> b = TransferFunction([1], [2, 3, 4])
+            >>> c = a + b
+            >>> print c
+            Transfer Function:
+            .
+            .        3s^2 + 5s + 7         
+            ------------------------------
+            2s^4 + 7s^3 + 16s^2 + 17s + 12
+            .
+            >>> type(c)
+            <class 'controlsystems.types.TransferFunction'>
         
         """
         
@@ -694,18 +694,18 @@ class TransferFunction(object):
         of the subtraction of 'self' TransferFunction and 'tf'
         TransferFunction, like:
         
-        >>> a = TransferFunction([1], [1, 2, 3])
-        >>> b = TransferFunction([1], [2, 3, 4])
-        >>> c = a - b
-        >>> print c
-        Transfer Function:
-
-                 s^2 + s + 1          
-        ------------------------------
-        2s^4 + 7s^3 + 16s^2 + 17s + 12
-        
-        >>> type(c)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([1], [1, 2, 3])
+            >>> b = TransferFunction([1], [2, 3, 4])
+            >>> c = a - b
+            >>> print c
+            Transfer Function:
+            .
+            .         s^2 + s + 1          
+            ------------------------------
+            2s^4 + 7s^3 + 16s^2 + 17s + 12
+            .
+            >>> type(c)
+            <class 'controlsystems.types.TransferFunction'>
         
         """
         
@@ -722,18 +722,18 @@ class TransferFunction(object):
         of the multiplication of 'self' Polynomial and 'tf'
         TransferFunction, like:
         
-        >>> a = TransferFunction([1], [1, 2, 3])
-        >>> b = TransferFunction([1], [2, 3, 4])
-        >>> c = a * b
-        >>> print c
-        Transfer Function:
-
-                      1               
-        ------------------------------
-        2s^4 + 7s^3 + 16s^2 + 17s + 12
-        
-        >>> type(c)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([1], [1, 2, 3])
+            >>> b = TransferFunction([1], [2, 3, 4])
+            >>> c = a * b
+            >>> print c
+            Transfer Function:
+            .
+            .              1               
+            ------------------------------
+            2s^4 + 7s^3 + 16s^2 + 17s + 12
+            .
+            >>> type(c)
+            <class 'controlsystems.types.TransferFunction'>
         
         """
         
@@ -749,24 +749,24 @@ class TransferFunction(object):
         This method returns a TransferFunction object with the transfer
         function simplified, like:
         
-        >>> a = TransferFunction([3], [3, 6, 9])
-        >>> print a
-        Transfer Function:
-
-              3      
-        -------------
-        3s^2 + 6s + 9
-        
-        >>> b = a.simplify()
-        >>> print b
-        Transfer Function:
-
-             1      
-        ------------
-        s^2 + 2s + 3
-        
-        >>> type(b)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([3], [3, 6, 9])
+            >>> print a
+            Transfer Function:
+            .
+            .      3      
+            -------------
+            3s^2 + 6s + 9
+            .
+            >>> b = a.simplify()
+            >>> print b
+            Transfer Function:
+            .
+            .     1      
+            ------------
+            s^2 + 2s + 3
+            .
+            >>> type(b)
+            <class 'controlsystems.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
         all expressions, but is usable.
@@ -811,17 +811,17 @@ class TransferFunction(object):
         of the multiplication of 'self' TransferFunction and 'a' number,
         like:
         
-        >>> a = TransferFunction([1], [1, 2, 3])
-        >>> b = a.mult(5)
-        >>> print b
-        Transfer Function:
-
-               5       
-        ---------------
-        5s^2 + 10s + 15
-        
-        >>> type(b)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([1], [1, 2, 3])
+            >>> b = a.mult(5)
+            >>> print b
+            Transfer Function:
+            .
+            .       5       
+            ---------------
+            5s^2 + 10s + 15
+            
+            >>> type(b)
+            <class 'controlsystems.types.TransferFunction'>
         
         """
         
@@ -837,23 +837,24 @@ class TransferFunction(object):
         of the division of 'self' TransferFunction per a 'a' number,
         like:
         
-        >>> a = TransferFunction([3], [3, 6, 9])
-        >>> print a
-        Transfer Function:
-
-              3      
-        -------------
-        3s^2 + 6s + 9
-        >>> b = a.div(3)
-        >>> print b
-        Transfer Function:
-
-             1      
-        ------------
-        s^2 + 2s + 3
-        
-        >>> type(b)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([3], [3, 6, 9])
+            >>> print a
+            Transfer Function:
+            .
+            .      3      
+            -------------
+            3s^2 + 6s + 9
+            .
+            >>> b = a.div(3)
+            >>> print b
+            Transfer Function:
+            .
+            .     1      
+            ------------
+            s^2 + 2s + 3
+            .
+            >>> type(b)
+            <class 'controlsystems.types.TransferFunction'>
         
         """
         
@@ -875,17 +876,17 @@ class TransferFunction(object):
         This method returns a TransferFunction object with the result
         of the feedback with unit gain of the transfer function, like:
         
-        >>> a = TransferFunction([1], [1, 2, 3])
-        >>> b = a.feedback_unit()
-        >>> print b
-        Transfer Function:
-
-                 s^2 + 2s + 3        
-        -----------------------------
-        s^4 + 4s^3 + 11s^2 + 14s + 12
-        
-        >>> type(b)
-        <class 'controlsystems.types.TransferFunction'>
+            >>> a = TransferFunction([1], [1, 2, 3])
+            >>> b = a.feedback_unit()
+            >>> print b
+            Transfer Function:
+            .
+            .         s^2 + 2s + 3        
+            -----------------------------
+            s^4 + 4s^3 + 11s^2 + 14s + 12
+            .
+            >>> type(b)
+            <class 'controlsystems.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
         expressions, but is usable.
@@ -903,31 +904,31 @@ class StateSpace(object):
     """StateSpace type
     
     This class implements the StateSpace type, based on Matrix type.
-    The state space object uses 4 matrices, as example:
+    The state-space object uses 4 matrices, like:
     
-    >>> tf = TransferFunction([1], [1, 2, 3])
-    >>> a = StateSpace(tf)
-    >>> print a
-    State-Space model:
-
-    Matrix A:
-    0     1
-    -3   -2
-    
-    Matrix B:
-    0
-    1
-    
-    Matrix C:
-    1    0
-    
-    Matrix D:
-    0
+        >>> tf = TransferFunction([1], [1, 2, 3])
+        >>> a = StateSpace(tf)
+        >>> print a
+        State-Space model:
+        .
+        Matrix A:
+        0     1
+        -3   -2
+        .
+        Matrix B:
+        0
+        1
+        .
+        Matrix C:
+        1    0
+        .
+        Matrix D:
+        0
 
     """
     
     #TODO: fix D matrix behaviour
-    #TODO: improve state space operations
+    #TODO: improve state-space operations
     
     def __init__(self, a, b = None, c = None, d = [[0]]):
         """Initialization of StateSpace object
@@ -951,8 +952,7 @@ class StateSpace(object):
     def __ss(self, a, b, c, d):
         """Initialization of StateSpace object using matrices
         
-        This method initialize a StateSpace object, using 3 or 4
-        matrices.
+        This method initialize a StateSpace object, using 4 matrices.
         
         """
         
@@ -1015,21 +1015,21 @@ class StateSpace(object):
         This method returns the string representation of state space
         models, like:
         
-        State-Space model:
-
-        Matrix A:
-        0     1
-        -3   -2
-        
-        Matrix B:
-        0
-        1
-        
-        Matrix C:
-        1    0
-        
-        Matrix D:
-        0
+            State-Space model:
+            .
+            Matrix A:
+            0     1
+            -3   -2
+            .
+            Matrix B:
+            0
+            1
+            .
+            Matrix C:
+            1    0
+            .
+            Matrix D:
+            0
         
         """
         
