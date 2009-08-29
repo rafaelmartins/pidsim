@@ -3,10 +3,6 @@
 import warnings
 warnings.filterwarnings('ignore')
 
-from sys import path
-from os.path import abspath, dirname
-path.insert(0, '%s/src' % dirname(__file__))
-
 from distutils.core import setup
 import controlsystems
 
@@ -20,6 +16,6 @@ setup(
     url=controlsystems.__url__,
     packages=[controlsystems.__name__],
     package_dir={
-        controlsystems.__name__: 'src/%s' % controlsystems.__name__
+        controlsystems.__name__: controlsystems.__name__
     },
 )
