@@ -12,7 +12,7 @@ clean:
 	rm -rfv $(PACKAGE)-doc
 
 distclean: clean
-	rm -rfv *.tar.gz
+	rm -rfv $(PACKAGE)-doc.tar.gz
 
 doc: clean
 	mkdir -p $(PWD)/$(PACKAGE)-doc/{pdf,html,temp}
