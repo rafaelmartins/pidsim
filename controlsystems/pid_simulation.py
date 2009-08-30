@@ -1,16 +1,16 @@
-"""PID Tuning Methods
+"""PID Controller Simulation
 
-This module implements some PID tuning methods, based on reaction curve.
-Take care to choose a total time after the system stabilization. This
-issue will be fixed soon.
+This module implements some PID tuning methods for simulation, based on
+the reaction curve. Take care to choose a total time after the system
+stabilization. This issue will be fixed soon.
 
 See: http://wikis.controltheorypro.com/index.php?title=PID_Control
 
 """
 
-#TODO: find stabilization time
+#TODO: find the stabilization time
 #TODO: error handling
-#TODO: improve documentation
+#TODO: improve the documentation
 
 __all__ = [
     'ZieglerNichols',
@@ -23,9 +23,9 @@ __all__ = [
 def ZieglerNichols(g, sample_time, total_time, n_method):
     """ZieglerNichols tuning method
     
-    Returns 'kp', 'ki' and 'kd' gains to a PID controller, using
-    Ziegler-Nichols tuning method, based on reaction curve. An example
-    (using Euler to discretize):
+    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
+    the Ziegler-Nichols tuning method, based on the reaction curve. For
+    example (using Euler to discretize):
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> kp, ki, kd = ZieglerNichols(g, 0.01, 10, Euler)
@@ -60,9 +60,9 @@ def ZieglerNichols(g, sample_time, total_time, n_method):
 def CohenCoon(g, sample_time, total_time, n_method):
     """CohenCoon tuning method
     
-    Returns 'kp', 'ki' and 'kd' gains to n PID controller, using
-    Cohen-Coon tuning method, based on reaction curve. An example
-    (using Euler to discretize):
+    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
+    the Cohen-Coon tuning method, based on the reaction curve. For
+    example (using Euler to discretize):
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> kp, ki, kd = CohenCoon(g, 0.01, 10, Euler)
@@ -98,9 +98,9 @@ def CohenCoon(g, sample_time, total_time, n_method):
 def ChienHronesReswick0(g, sample_time, total_time, n_method):
     """ChienHronesReswick0 tuning method
     
-    Returns 'kp', 'ki' and 'kd' gains to a PID controller, using
-    Chien-Hrones-Reswick (0%) tuning method, based on reaction curve.
-    An example (using Euler to discretize):
+    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
+    the Chien-Hrones-Reswick (0%) tuning method, based on the reaction
+    curve. For example (using Euler to discretize):
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> kp, ki, kd = ChienHronesReswick0(g, 0.01, 10, Euler)
@@ -135,9 +135,9 @@ def ChienHronesReswick0(g, sample_time, total_time, n_method):
 def ChienHronesReswick20(g, sample_time, total_time, n_method):
     """ChienHronesReswick20 tuning method
     
-    Returns 'kp', 'ki' and 'kd' gains to a PID controller, using
-    Chien-Hrones-Reswick (20%) tuning method, based on reaction curve.
-    An example (using Euler to discretize):
+    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
+    the Chien-Hrones-Reswick (20%) tuning method, based on the reaction
+    curve. For example (using Euler to discretize):
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> kp, ki, kd = ChienHronesReswick20(g, 0.01, 10, Euler)

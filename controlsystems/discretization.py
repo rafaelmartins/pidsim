@@ -1,7 +1,7 @@
-"""Discretization module
+"""Transfer Functions discretization
 
-This module implements some numerical methods to discretize Transfer
-Functions.
+This module implements some numerical methods to discretize the Transfer
+Functions on the time domain.
 
 """
 
@@ -17,16 +17,16 @@ from error import ControlSystemsError
 def Euler(g, sample_time, total_time):
     """Euler Method
     
-    Returns points of step response of the transfer function 'g',
-    discretized with Euler method, using sample time 'sample_time'
+    Returns the points of the step response of the transfer function 'g',
+    discretized with the Euler method, using the sample time 'sample_time'
     on 'total_time' seconds. For example:
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = Euler(g, 0.01, 10)
         >>> print t
-        (prints an vector of times 0-10s, with sample time 0.01s)
+        (prints a vector of times 0-10s, with the sample time 0.01s)
         >>> print y
-        (prints an vector of points, with same size of 't')
+        (prints a vector of points, with the same size of 't')
     
     """
     
@@ -57,16 +57,16 @@ def Euler(g, sample_time, total_time):
 def RungeKutta2(g, sample_time, total_time):
     """RungeKutta2 Method
     
-    Returns points of step response to the transfer function 'g',
-    discretized with Runge Kutta (order 2) method, using sample time
-    'sample_time' on 'total_time' seconds, like:
+    Returns the points of the step response to the transfer function 'g',
+    discretized with the Runge Kutta (order 2) method, using the sample
+    time 'sample_time' on 'total_time' seconds. For example:
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = RungeKutta2(g, 0.01, 10)
         >>> print t
-        (prints an vector of times 0-10s, with sample time 0.01s)
+        (prints a vector of times 0-10s, with the sample time 0.01s)
         >>> print y
-        (prints an vector of points, with same size of 't')
+        (prints a vector of points, with the same size of 't')
     
     """
     
@@ -102,16 +102,16 @@ def RungeKutta2(g, sample_time, total_time):
 def RungeKutta3(g, sample_time, total_time):
     """RungeKutta3 Method
     
-    Returns points of step response to the transfer function 'g',
-    discretized with Runge Kutta (order 3) method, using sample time
-    'sample_time' on 'total_time' seconds, like:
+    Returns the points of the step response to the transfer function 'g',
+    discretized with the Runge Kutta (order 3) method, using the sample
+    time 'sample_time' on 'total_time' seconds. For example:
     
         >>> g = TransferFunction([1], [1, 2, 3])
-        >> t, y = RungeKutta3(g, 0.01, 10)
+        >>> t, y = RungeKutta3(g, 0.01, 10)
         >>> print t
-        (prints an vector of times 0-10s, with sample time 0.01s)
+        (prints a vector of times 0-10s, with the sample time 0.01s)
         >>> print y
-        (prints an vector of points, with same size of 't')
+        (prints a vector of points, with the same size of 't')
     
     """
     
@@ -157,16 +157,16 @@ def RungeKutta3(g, sample_time, total_time):
 def RungeKutta4(g, sample_time, total_time):
     """RungeKutta4 Method
     
-    Returns points of step response to the transfer function 'g',
-    discretized with Runge Kutta (order 4) method, using sample time
-    'sample_time' on 'total_time' seconds, like:
+    Returns the points of the step response to the transfer function 'g',
+    discretized with the Runge Kutta (order 4) method, using the sample
+    time 'sample_time' on 'total_time' seconds. For example:
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = RungeKutta4(g, 0.01, 10)
         >>> print t
-        (prints an vector of times 0-10s, with sample time 0.01s)
+        (prints a vector of times 0-10s, with the sample time 0.01s)
         >>> print y
-        (prints an vector of points, with same size of 't')
+        (prints a vector of points, with the same size of 't')
     
     """
     

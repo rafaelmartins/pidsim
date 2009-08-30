@@ -1,7 +1,7 @@
 """Data Types for Control Systems
 
-This module implements some data types for Control Systems,like:
-Transfer Functions, State-Space models and others.
+This module implements some data types for the Control Systems. For
+example: Transfer Functions, State-Space models and others.
 
 """
 
@@ -19,8 +19,8 @@ from error import ControlSystemsError
 class Polynomial(list):
     """Polynomial type
     
-    This class implements the Polynomial type, based on Python lists.
-    The polinomial object is a list of coeficients, for example:
+    This class implements the Polynomial type, based on the Python lists.
+    The Polynomial object is a list of coeficients. For example:
     
         >>> a = Polynomial([1, 2, 3])
         >>> print a
@@ -33,8 +33,8 @@ class Polynomial(list):
     def __str__(self):
         """String representation
         
-        This method returns the string representation of polynomials,
-        like:
+        This method returns the string representation of polynomials.
+        For example:
         
             x^2 + 2x + 3
         
@@ -77,7 +77,8 @@ class Polynomial(list):
         """Operation of addition
         
         This method returns a Polynomial object with the result of the
-        addition of 'self' Polynomial and 'term' Polynomial, like:
+        addition of the Polynomial 'self' and the Polynomial 'term'.
+        For example:
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = Polynomial([2, 3, 4])
@@ -120,7 +121,8 @@ class Polynomial(list):
         """Operation of subtraction
         
         This method returns a Polynomial object with the result of the
-        subtraction of 'self' Polynomial and 'term' Polynomial, like:
+        subtraction of the Polynomial 'self' and the Polynomial 'term'.
+        For example:
         
             >>> a = Polynomial([2, 3, 4])
             >>> b = Polynomial([1, 2, 3])
@@ -143,7 +145,8 @@ class Polynomial(list):
         """Operation of multiplication of polynomials
         
         This method returns a Polynomial object with the result of the
-        multiplication of 'self' Polynomial and 'term' Polynomial, like:
+        multiplication of the Polynomial 'self' and the Polynomial
+        'term'. For example:
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = Polynomial([2, 3, 4])
@@ -191,7 +194,8 @@ class Polynomial(list):
         """Operation of division of polynomials
         
         This method returns a Polynomial object with the result of the
-        multiplication of 'self' Polynomial and 'term' Polynomial
+        multiplication of the Polynomial 'self' and the Polynomial
+        'term'.
         
         Not implemented yet.
         
@@ -212,7 +216,8 @@ class Polynomial(list):
         """Operation of multiplication between numbers and polynomials
         
         This method returns a Polynomial object with the result of the
-        multiplication of 'self' Polynomial and 'val' number, like:
+        multiplication of the Polynomial 'self' and the number 'val'.
+        For example:
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = a.mult(5)
@@ -236,8 +241,8 @@ class Polynomial(list):
     def Zero(self, order):
         """Auxiliary method
         
-        This method returns a Polynomial object initialized with zeros,
-        like:
+        This method returns a Polynomial object initialized with zeros.
+        For example:
         
             >>> a = Polynomial()
             >>> a.Zero(4)
@@ -258,9 +263,9 @@ class Polynomial(list):
 class Matrix(list):
     """Matrix type
     
-    This class implements the Matrix type, based on Python lists.
+    This class implements the Matrix type, based on the Python lists.
     The matrix object is a list of lists and have 2 properties ('cols'
-    and 'rows'), that store the sizes of matrix, like:
+    and 'rows'), that store the sizes of the matrix. For example:
     
         >>> a = Matrix([
         ...     [1, 2, 3],
@@ -283,8 +288,8 @@ class Matrix(list):
     def __init__(self, mat):
         """Initialization of Matrix object
         
-        This method initialize a Matrix object, calculating values of
-        properties 'cols' and 'rows'.
+        This method initialize a Matrix object, calculating the values
+        of the properties 'cols' and 'rows'.
         
         """
         
@@ -306,8 +311,8 @@ class Matrix(list):
     def __str__(self):
         """String representation
         
-        This method returns the string representation of matrices,
-        like:
+        This method returns the string representation of matrices. For
+        example:
         
             1    2    3
             2    3    4
@@ -329,8 +334,8 @@ class Matrix(list):
     def __call__(self, row, col=None):
         """Callable object
         
-        This method returns a row Matrix object, if a parameter is
-        used, and a number, if two parameters are used, like:
+        This method returns a row Matrix object if a parameter is used
+        and a number if two parameters are used. For example:
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -361,7 +366,7 @@ class Matrix(list):
         """Operation of addition
         
         This method returns a Matrix object with the result of the
-        addition of 'self' MAtrix and 'mat' Matrix, like:
+        addition of the Matrix 'self' and the Matrix 'mat'. For example:
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -408,7 +413,8 @@ class Matrix(list):
         """Operation of subtraction
         
         This method returns a Matrix object with the result of the
-        subtraction of 'self' Matrix and 'mat' Matrix, like:
+        subtraction of the Matrix 'self' and the Matrix 'mat'. For
+        example:
         
             >>> a = Matrix([
             ...     [2, 3],
@@ -440,8 +446,9 @@ class Matrix(list):
     def __mul__(self, mat):
         """Operation of multiplication of polynomials
         
-        This method returns a Polynomial object with the result of the
-        multiplication of 'self' Polynomial and 'term' Polynomial, like:
+        This method returns a Matrix object with the result of the
+        multiplication of the Matrix 'self' and the Matrix 'mat'. For
+        example:
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -483,7 +490,8 @@ class Matrix(list):
         """Operation of multiplication between numbers and matrices
         
         This method returns a Matrix object with the result of the
-        multiplication of 'self' Polynomial and 'num' number, like:
+        multiplication of the Matrix 'self' and the number 'num'. For
+        example:
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -514,7 +522,7 @@ class Matrix(list):
         """Transpose of matrix
         
         This method returns a Matrix object with the transpose of
-        'self' Matrix, like:
+        the Matrix 'self'. For example:
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -543,7 +551,7 @@ class Matrix(list):
 def ZerosMatrix(rows, cols=None):
     """Matrix of zeros
         
-    This method returns a Matrix object with zeros, like:
+    This method returns a Matrix object filled by zeros. For example:
     
         >>> a = ZerosMatrix(2, 4)
         >>> print a
@@ -577,7 +585,7 @@ def IdentityMatrix(order):
     """Matrix Identity
         
     This method returns a Matrix object with zeros, and ones only on
-    main diagonal, like:
+    main diagonal. For example:
     
         >>> a = IdentityMatrix(4)
         >>> print a
@@ -607,9 +615,9 @@ def IdentityMatrix(order):
 class TransferFunction(object):
     """TransferFunction type
     
-    This class implements the TransferFunction type, based on
-    Polynomial type. The transfer function object uses 2 polynomials
-    to store numerator and denominator, like:
+    This class implements the TransferFunction type, based on the
+    Polynomial type. The TransferFunction object uses 2 polynomials
+    to store the numerator and the denominator. For example:
     
         >>> a = TransferFunction([1], [1, 2, 3])
         >>> print a
@@ -638,8 +646,8 @@ class TransferFunction(object):
     def __str__(self):
         """String representation
         
-        This method returns the string representation of matrices,
-        like:
+        This method returns the string representation of the transfer
+        functions. For example:
         
             Transfer Function:
             .
@@ -664,8 +672,8 @@ class TransferFunction(object):
         """Operation of addition
         
         This method returns a TransferFunction object with the result
-        of the addition of 'self' TransferFunction and 'tf'
-        TransferFunction, like:
+        of the addition of the TransferFunction 'self' and  the
+        TransferFunction 'tf'. For example:
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
@@ -691,8 +699,8 @@ class TransferFunction(object):
         """Operation of subtraction
         
         This method returns a TransferFunction object with the result
-        of the subtraction of 'self' TransferFunction and 'tf'
-        TransferFunction, like:
+        of the subtraction of the TransferFunction 'self' and the
+        TransferFunction 'tf'. For example:
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
@@ -719,8 +727,8 @@ class TransferFunction(object):
         """Operation of multiplication of polynomials
         
         This method returns a TransferFunction object with the result
-        of the multiplication of 'self' Polynomial and 'tf'
-        TransferFunction, like:
+        of the multiplication of the TransferFunction 'self'and the
+        TransferFunction 'tf'. for example:
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
@@ -747,7 +755,7 @@ class TransferFunction(object):
         """Simplify Transfer Functions
         
         This method returns a TransferFunction object with the transfer
-        function simplified, like:
+        function simplified. For example:
         
             >>> a = TransferFunction([3], [3, 6, 9])
             >>> print a
@@ -769,7 +777,7 @@ class TransferFunction(object):
             <class 'controlsystems.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
-        all expressions, but is usable.
+        all possible expressions, but it's usable.
         
         """
         
@@ -808,8 +816,8 @@ class TransferFunction(object):
         functions
         
         This method returns a TransferFunction object with the result
-        of the multiplication of 'self' TransferFunction and 'a' number,
-        like:
+        of the multiplication of the TransferFunction 'self' and the
+        number 'a'. For example:
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = a.mult(5)
@@ -834,8 +842,8 @@ class TransferFunction(object):
         """Operation of division of a transfer function per a number
         
         This method returns a TransferFunction object with the result
-        of the division of 'self' TransferFunction per a 'a' number,
-        like:
+        of the division of the coefficients of the TransferFunction
+        'self' and the number 'a'. For example:
         
             >>> a = TransferFunction([3], [3, 6, 9])
             >>> print a
@@ -874,7 +882,7 @@ class TransferFunction(object):
         """Feedback with unit gain
         
         This method returns a TransferFunction object with the result
-        of the feedback with unit gain of the transfer function, like:
+        of the unit gain feedback of the transfer function. For example:
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = a.feedback_unit()
@@ -889,7 +897,7 @@ class TransferFunction(object):
             <class 'controlsystems.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
-        expressions, but is usable.
+        the expressions, but it's usable.
         
         """
         
@@ -903,7 +911,7 @@ class TransferFunction(object):
 class StateSpace(object):
     """StateSpace type
     
-    This class implements the StateSpace type, based on Matrix type.
+    This class implements the StateSpace type, based on the Matrix type.
     The state-space object uses 4 matrices, like:
     
         >>> tf = TransferFunction([1], [1, 2, 3])
@@ -1012,8 +1020,8 @@ class StateSpace(object):
     def __str__(self):
         """String representation
         
-        This method returns the string representation of state space
-        models, like:
+        This method returns the string representation of the state-space
+        models. For example:
         
             State-Space model:
             .

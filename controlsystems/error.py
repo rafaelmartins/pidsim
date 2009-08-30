@@ -3,8 +3,8 @@
 class ControlSystemsError(Exception):
     """ControlSystemsError class
     
-    A simple error handling class, extends Exception class, from
-    Python standard library
+    A simple error handling class, extends the Exception class, from
+    the Python standard library.
     
     """
     
