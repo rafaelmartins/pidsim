@@ -11,9 +11,9 @@ To use the examples, please initialize this package, using:
     >>> from controlsystems.error import *
 
 If you need some help with use, or can help the development, please
-contact autor via email or file a issue on project page:
+contact autor via email or visit our project website:
 
-http://pycontrolsystems.com/projects/show/controlsystems
+http://pycontrolsystems.com/
 
 All help is welcome! :)
 
@@ -27,7 +27,7 @@ __author__ = 'Rafael Goncalves Martins'
 __email__ = 'rafael@rafaelmartins.com'
 
 __description__ = 'A python library for study of control systems'
-__url__ = 'http://pycontrolsystems.com/projects/show/controlsystems'
+__url__ = 'http://pycontrolsystems.com/'
 __copyright__ = '(c) 2009 %s' % __author__
 __license__ = 'GPLv2'
 
