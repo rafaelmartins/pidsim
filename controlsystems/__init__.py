@@ -31,6 +31,6 @@ __url__ = 'http://pycontrolsystems.com/'
 __copyright__ = '(c) 2009 %s' % __author__
 __license__ = 'GPLv2'
 
-__version__ = '1.0rc1'
+__version__ = '1.0rc2'
 __status__ = 'Beta'
 
