@@ -13,7 +13,7 @@ To use the examples, please initialize this package, using:
 If you need some help with the use, or can help with the development,
 please contact the author via email or visit our project website:
 
-http://pycontrolsystems.com/
+http://packages.python.org/controlsystems/
 
 All the help is welcome! :)
 
@@ -27,7 +27,7 @@ __author__ = 'Rafael Goncalves Martins'
 __email__ = 'rafael@rafaelmartins.com'
 
 __description__ = 'A Python library for the study of the Control Systems'
-__url__ = 'http://pycontrolsystems.com/'
+__url__ = 'http://packages.python.org/controlsystems/'
 __copyright__ = '(c) 2009 %s' % __author__
 __license__ = 'GPLv2'
 
