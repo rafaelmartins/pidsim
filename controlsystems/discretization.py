@@ -174,7 +174,6 @@ def RungeKutta4(g, sample_time, total_time):
         raise ControlSystemsError('Parameter must be a Transfer Fcn.')
 
     ss = StateSpace(g)
-    print ss
     
     samples = int(total_time/sample_time) + 1
     
