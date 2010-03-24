@@ -584,6 +584,23 @@ def ZerosMatrix(rows, cols=None):
     return Matrix(aux)
 
 
+def ZerosPolynomial(order):
+    """Polynomial of zeros
+        
+    This method returns a Polynomial object filled by zeros. For example:
+    
+        >>> a = ZerosPolynomial(3)
+        >>> print list(a)
+        [0, 0, 0, 0]
+        >>>
+        >>> type(a)
+        <class 'controlsystems.types.Polynomial'>
+    
+    """
+    
+    return Polynomial([0 for i in range(order + 1)])
+
+
 def IdentityMatrix(order):
     """Matrix Identity
         
@@ -979,45 +996,65 @@ class StateSpace(object):
         This method initialize a StateSpace object, using a
         TransferFunction object.
         
+        This method is based on 'tf2ss.m' from Octave Control Systems
+        Toolbox (http://octave.sourceforge.net/control/index.html). Many
+        thanks to R. Bruce Tenison <btenison@eng.auburn.edu>.
+        
         """
         
         if len(tf.num) == 0 or len(tf.den) == 0:
             raise ControlSystemsError('Invalid Transfer Function')
         
-        #preparing A
-        order = len(tf.den) - 1
-        a = ZerosMatrix(order)
-        for i in range(order-1):
-            for j in range(1, order):
-                if (i+1) == j:
-                    a[i][j] = 1
+        num = tf.num[:]
         den = tf.den[:]
-        den.reverse()
-        for i in range(order):
-            a[order-1][i] = -den[i]
+        nn = len(num)
+        nd = len(den)
         
-        #preparing B
-        b = ZerosMatrix(order, 1)
-        if len(tf.num) == 1:
-            b[order-1][0] = tf.num[0]
+        # Check sizes
+        if nd == 1:
+            a = []
+            b = []
+            c = []
+            d = num[0] / den[0]
         else:
-            b[order-1][0] = 1
-
-        #preparing C
-        c = ZerosMatrix(1, order)
-        if len(tf.num) == 1:
-            c[0][0] = 1
-        else:
-            num = tf.num[:]
-            num.reverse()
-            for i in range(order):
-                try:
-                    c[0][i] = num[i]
-                except IndexError:
-                    pass
+            # Pad num so that len(tf.num) = len(tf.den)
+            if (nd-nn) > 0:
+                for i in range(nd-nn):
+                    num.insert(0, 0)
         
-        #TODO: fix D
-        self.__ss(a, b, c, [[0]])
+            # Normalize the numerator and denominator vector w.r.t. the leading
+            # coefficient
+            d1 = den[0]
+            num = Polynomial(num).mult(1.0/d1)
+            den = Polynomial(den[1:]).mult(1.0/d1)
+            
+            # Form the A matrix
+            a = ZerosMatrix(nd-1)
+            den_tmp = den[:]
+            den_tmp.reverse()
+            if nd > 2:
+                for i in range(nd-2):
+                    for j in range(1, nd-1):
+                        if (i+1) == j:
+                            a[i][j] = 1
+                for i in range(nd-1):
+                    a[nd-2][i] = -den_tmp[i]
+            else:
+                a[0][0] = -den_tmp[0]
+            
+            # Form the B matrix
+            b = ZerosMatrix(nd-1, 1)
+            b[nd-2][0] = 1
+            
+            # Form the C matrix
+            c = Polynomial(num[1:]) - den.mult(num[0])
+            c.reverse()
+            c = [c]
+            
+            # Form the D matrix
+            d = [[num[0]]]
+        
+        self.__ss(list(a), list(b), c, d)
     
     
     def __str__(self):
