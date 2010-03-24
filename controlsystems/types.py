@@ -54,14 +54,17 @@ class Polynomial(list):
             if coefficient == 0:
                 continue
             
-            if order != len(self) - 1:
+            if order != (len(self) - 1):
             
                 if coefficient > 0:
                     response += ' + '
                 else:
                     response += ' - '
             
-            if abs(coefficient) > 1 or order == 0:
+            if coefficient < 0 and order == (len(self) - 1):
+                response += '-'
+            
+            if abs(coefficient) != 1 or order == 0:
                 response += str(abs(coefficient))
             
             if order > 0:
