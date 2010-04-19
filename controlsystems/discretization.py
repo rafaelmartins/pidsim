@@ -35,12 +35,12 @@ def Euler(g, sample_time, total_time):
 
     ss = StateSpace(g)
     
-    samples = int(total_time/sample_time) + 1
+    samples = int(total_time/sample_time)
     
-    t = [sample_time * a for a in range(samples)]
+    t = [sample_time * a for a in range(samples+1)]
     
     x = ZerosMatrix(ss.a.rows, 1)
-    y = []
+    y = [0.0]
     
     eye = IdentityMatrix(ss.a.rows)
     
@@ -75,12 +75,12 @@ def RungeKutta2(g, sample_time, total_time):
 
     ss = StateSpace(g)
     
-    samples = int(total_time/sample_time) + 1
+    samples = int(total_time/sample_time)
     
-    t = [sample_time * a for a in range(samples)]
+    t = [sample_time * a for a in range(samples+1)]
     
     x = ZerosMatrix(ss.a.rows, 1)
-    y = []
+    y = [0.0]
     
     eye = IdentityMatrix(ss.a.rows)
     
@@ -120,12 +120,12 @@ def RungeKutta3(g, sample_time, total_time):
 
     ss = StateSpace(g)
     
-    samples = int(total_time/sample_time) + 1
+    samples = int(total_time/sample_time)
     
-    t = [sample_time * a for a in range(samples)]
+    t = [sample_time * a for a in range(samples+1)]
     
     x = ZerosMatrix(ss.a.rows, 1)
-    y = []
+    y = [0.0]
     
     eye = IdentityMatrix(ss.a.rows)
     
@@ -175,12 +175,12 @@ def RungeKutta4(g, sample_time, total_time):
 
     ss = StateSpace(g)
     
-    samples = int(total_time/sample_time) + 1
+    samples = int(total_time/sample_time)
     
-    t = [sample_time * a for a in range(samples)]
+    t = [sample_time * a for a in range(samples+1)]
     
     x = ZerosMatrix(ss.a.rows, 1)
-    y = []
+    y = [0.0]
     
     eye = IdentityMatrix(ss.a.rows)
     
