@@ -14,7 +14,7 @@ __all__ = [
 
 #TODO: implement zero-pole data type
 
-from error import ControlSystemsError
+from pidsim.error import ControlSystemsError
 
 class Polynomial(list):
     """Polynomial type

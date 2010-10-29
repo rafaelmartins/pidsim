@@ -10,9 +10,9 @@ __all__ = ['Euler', 'RungeKutta2', 'RungeKutta3', 'RungeKutta4']
 #TODO: discretize State-Space models too.
 #TODO: implement more numerical methods
 
-from types import Matrix, ZerosMatrix, IdentityMatrix, \
+from pidsim.types import Matrix, ZerosMatrix, IdentityMatrix, \
                   TransferFunction, StateSpace
-from error import ControlSystemsError
+from pidsim.error import ControlSystemsError
 
 def Euler(g, sample_time, total_time):
     """Euler Method

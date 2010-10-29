@@ -1,21 +1,17 @@
 #!/usr/bin/env python
-
-import warnings
-warnings.filterwarnings('ignore')
+# -*- coding: utf-8 -*-
 
 from distutils.core import setup
-import controlsystems
+import pidsim
 
 setup(
-    name=controlsystems.__name__,
-    version=controlsystems.__version__,
-    license=controlsystems.__license__,
-    description=controlsystems.__description__,
-    author=controlsystems.__author__,
-    author_email=controlsystems.__email__,
-    url=controlsystems.__url__,
-    packages=[controlsystems.__name__],
-    package_dir={
-        controlsystems.__name__: controlsystems.__name__
-    },
+    name = pidsim.__name__,
+    version = pidsim.__version__,
+    license = pidsim.__license__,
+    description = pidsim.__description__,
+    author = pidsim.__author__,
+    author_email = pidsim.__email__,
+    url = pidsim.__url__,
+    packages = ['pidsim'],
+    package_dir={'pidsim': 'pidsim'},
 )

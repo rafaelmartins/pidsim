@@ -34,3 +34,8 @@ __license__ = 'GPLv2'
 __version__ = '1.0rc3'
 __status__ = 'Beta'
 
+
+import discretization
+import error
+import pid_simulation
+import types
