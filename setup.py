@@ -15,7 +15,6 @@ setup(
     url = pidsim.__url__,
     platforms = 'any',
     packages = ['pidsim'],
-    package_dir={'pidsim': 'pidsim'},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -32,4 +31,3 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
-
