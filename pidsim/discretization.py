@@ -1,18 +1,26 @@
-"""Transfer Functions discretization
-
-This module implements some numerical methods to discretize the Transfer
-Functions on the time domain.
-
+# -*- coding: utf-8 -*-
 """
+    pidsim.discretization
+    ~~~~~~~~~~~~~~~~~~~~~
 
-__all__ = ['Euler', 'RungeKutta2', 'RungeKutta3', 'RungeKutta4']
+    Transfer Function discretization methods.
+    
+    This module implements some numerical methods to discretize the
+    Transfer Functions on the time domain.
+    
+    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :license: GPL-2, see LICENSE for more details.
+"""
 
 #TODO: discretize State-Space models too.
 #TODO: implement more numerical methods
 
-from pidsim.types import Matrix, ZerosMatrix, IdentityMatrix, \
-                  TransferFunction, StateSpace
+__all__ = ['Euler', 'RungeKutta2', 'RungeKutta3', 'RungeKutta4']
+
 from pidsim.error import ControlSystemsError
+from pidsim.types import Matrix, ZerosMatrix, IdentityMatrix, \
+    TransferFunction, StateSpace
+
 
 def Euler(g, sample_time, total_time):
     """Euler Method

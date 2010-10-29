@@ -1,4 +1,16 @@
-"""Error handling class"""
+# -*- coding: utf-8 -*-
+"""
+    pidsim.error
+    ~~~~~~~~~~~~
+
+    Error handling module.
+    
+    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :license: GPL-2, see LICENSE for more details.
+"""
+
+__all__ = ['ControlSystemsError']
+
 
 class ControlSystemsError(Exception):
     """ControlSystemsError class

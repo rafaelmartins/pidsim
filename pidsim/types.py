@@ -1,20 +1,29 @@
-"""Data Types for Control Systems
-
-This module implements some data types for the Control Systems. For
-example: Transfer Functions, State-Space models and others.
-
+# -*- coding: utf-8 -*-
 """
+    pidsim.types
+    ~~~~~~~~~~~~
 
-__all__ = [
-    'Polynomial',
-    'Matrix', 'ZerosMatrix', 'IdentityMatrix',
-    'TransferFunction',
-    'StateSpace',
-]
+    Data Types for Control Systems
+    
+    This module implements some data types for the Control Systems.
+    
+    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :license: GPL-2, see LICENSE for more details.
+"""
 
 #TODO: implement zero-pole data type
 
+__all__ = [
+    'Polynomial', 'poly',
+    'Matrix', 'mat',
+    'ZerosMatrix', 'zeros',
+    'IdentityMatrix', 'eye',
+    'TransferFunction', 'tf',
+    'StateSpace', 'ss',
+]
+
 from pidsim.error import ControlSystemsError
+
 
 class Polynomial(list):
     """Polynomial type
@@ -89,7 +98,7 @@ class Polynomial(list):
             >>> print c
             3x^2 + 5x + 7
             >>> type(c)
-            <class 'controlsystems.types.Polynomial'>
+            <class 'pidsim.types.Polynomial'>
         
         """
         
@@ -133,7 +142,7 @@ class Polynomial(list):
             >>> print c
             x^2 + x + 1
             >>> type(c)
-            <class 'controlsystems.types.Polynomial'>
+            <class 'pidsim.types.Polynomial'>
         
         This method is based on __add__ method
         
@@ -157,7 +166,7 @@ class Polynomial(list):
             >>> print c
             2x^4 + 7x^3 + 16x^2 + 17x + 12
             >>> type(c)
-            <class 'controlsystems.types.Polynomial'>
+            <class 'pidsim.types.Polynomial'>
         
         """
         
@@ -227,7 +236,7 @@ class Polynomial(list):
             >>> print b
             5x^2 + 10x + 15
             >>> type(b)
-            <class 'controlsystems.types.Polynomial'>
+            <class 'pidsim.types.Polynomial'>
         
         """
         
@@ -261,6 +270,7 @@ class Polynomial(list):
             zero.append(0)
         
         return Polynomial(zero)
+poly = Polynomial
 
 
 class Matrix(list):
@@ -349,7 +359,7 @@ class Matrix(list):
             >>> print b
             3    4
             >>> type(b)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
             >>>
             >>> c = a(0, 0)
             >>> print c
@@ -386,7 +396,7 @@ class Matrix(list):
             3    5
             7    9
             >>> type(c)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
         
         """
         
@@ -435,7 +445,7 @@ class Matrix(list):
             1    1
             >>>
             >>> type(c)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
         
         This method is based on __add__ method
         
@@ -469,7 +479,7 @@ class Matrix(list):
             22    29
             >>>
             >>> type(c)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
         
         """
         
@@ -507,7 +517,7 @@ class Matrix(list):
             15   20
             >>>
             >>> type(b)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
         
         """
         
@@ -538,7 +548,7 @@ class Matrix(list):
             2    4
             >>>
             >>> type(b)
-            <class 'controlsystems.types.Matrix'>
+            <class 'pidsim.types.Matrix'>
         
         """
         
@@ -549,6 +559,7 @@ class Matrix(list):
                 aux[j][i] = self[i][j]
         
         return aux
+mat = Matrix
 
 
 def ZerosMatrix(rows, cols=None):
@@ -567,7 +578,7 @@ def ZerosMatrix(rows, cols=None):
         0    0
         >>>
         >>> type(b)
-        <class 'controlsystems.types.Matrix'>
+        <class 'pidsim.types.Matrix'>
     
     """
     
@@ -582,6 +593,7 @@ def ZerosMatrix(rows, cols=None):
             aux[i].append(0)
     
     return Matrix(aux)
+zeros = ZerosMatrix
 
 
 def ZerosPolynomial(order):
@@ -594,7 +606,7 @@ def ZerosPolynomial(order):
         [0, 0, 0, 0]
         >>>
         >>> type(a)
-        <class 'controlsystems.types.Polynomial'>
+        <class 'pidsim.types.Polynomial'>
     
     """
     
@@ -615,7 +627,7 @@ def IdentityMatrix(order):
         0    0    0    1
         >>>
         >>> type(a)
-        <class 'controlsystems.types.Matrix'>
+        <class 'pidsim.types.Matrix'>
     
     """
     
@@ -630,6 +642,7 @@ def IdentityMatrix(order):
                 aux[i].append(0)
     
     return Matrix(aux)
+eye = IdentityMatrix
 
 
 class TransferFunction(object):
@@ -706,7 +719,7 @@ class TransferFunction(object):
             2s^4 + 7s^3 + 16s^2 + 17s + 12
             .
             >>> type(c)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         """
         
@@ -733,7 +746,7 @@ class TransferFunction(object):
             2s^4 + 7s^3 + 16s^2 + 17s + 12
             .
             >>> type(c)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         """
         
@@ -761,7 +774,7 @@ class TransferFunction(object):
             2s^4 + 7s^3 + 16s^2 + 17s + 12
             .
             >>> type(c)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         """
         
@@ -794,7 +807,7 @@ class TransferFunction(object):
             s^2 + 2s + 3
             .
             >>> type(b)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
         all possible expressions, but it's usable.
@@ -849,7 +862,7 @@ class TransferFunction(object):
             5s^2 + 10s + 15
             
             >>> type(b)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         """
         
@@ -882,7 +895,7 @@ class TransferFunction(object):
             s^2 + 2s + 3
             .
             >>> type(b)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         """
         
@@ -914,7 +927,7 @@ class TransferFunction(object):
             s^4 + 4s^3 + 11s^2 + 14s + 12
             .
             >>> type(b)
-            <class 'controlsystems.types.TransferFunction'>
+            <class 'pidsim.types.TransferFunction'>
         
         Attention: This method is far from perfect, and don't simplify
         the expressions, but it's usable.
@@ -926,6 +939,7 @@ class TransferFunction(object):
         aux = TransferFunction([1], [1]) + self
         
         return TransferFunction(self.num * aux.den, self.den * aux.num)
+tf = TransferFunction
 
 
 class StateSpace(object):
@@ -1091,3 +1105,4 @@ class StateSpace(object):
         ret += str(self.d) + '\n'
         
         return ret
+ss = StateSpace

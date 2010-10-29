@@ -1,11 +1,19 @@
-"""PID Controller Simulation
+# -*- coding: utf-8 -*-
+"""
+    pidsim.pid_simulation
+    ~~~~~~~~~~~~~~~~~~~~~
 
-This module implements some PID tuning methods for simulation, based on
-the reaction curve. Take care to choose a total time after the system
-stabilization. This issue will be fixed soon.
-
-See: http://wikis.controltheorypro.com/index.php?title=PID_Control
-
+    PID Controller simulation methods.
+    
+    This module implements some PID tuning methods for simulation, based
+    on the reaction curve. Take care to choose a total time after the
+    system stabilization for now.
+    
+    For a quick reference about PID controllers, see:
+    http://wikis.controltheorypro.com/index.php?title=PID_Control
+    
+    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :license: GPL-2, see LICENSE for more details.
 """
 
 #TODO: find the stabilization time
@@ -194,6 +202,7 @@ def get_time_near(t, y, point):
 
 
 def tuning_rule(t, y):
+    """Reaction curve tuning rule"""
     
     k = y[-1]
     

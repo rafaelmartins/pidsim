@@ -1,38 +1,27 @@
-"""Python Control Systems core package
+# -*- coding: utf-8 -*-
+"""
+    pidsim
+    ~~~~~~
 
-This package implements a basic toolbox for the study of the Control
-Systems, using Python.
+    Main package of pidsim.
+    
+    This package implements a basic toolbox for the study of the Control
+    Systems and simulate PID controllers using Python.
 
-To use the examples, please initialize this package, using:
-
-    >>> from controlsystems.types import *
-    >>> from controlsystems.discretization import *
-    >>> from controlsystems.pid_simulation import *
-    >>> from controlsystems.error import *
-
-If you need some help with the use, or can help with the development,
-please contact the author via email or visit our project website:
-
-http://packages.python.org/controlsystems/
-
-All the help is welcome! :)
-
+    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :license: GPL-2, see LICENSE for more details.
 """
 
-#TODO: create unit tests
+#TODO: write unit tests and docs
 
-__all__ = ['types', 'discretization', 'pid_tuning']
-
+__all__ = ['discretization', 'error', 'pid_simulation', 'types']
 __author__ = 'Rafael Goncalves Martins'
-__email__ = 'rafael@rafaelmartins.com'
-
-__description__ = 'A Python library for the study of the Control Systems'
+__email__ = 'rafael@rafaelmartins.eng.br'
+__description__ = 'PID Controllers simulator'
 __url__ = 'http://packages.python.org/controlsystems/'
-__copyright__ = '(c) 2009 %s' % __author__
-__license__ = 'GPLv2'
-
-__version__ = '1.0rc3'
-__status__ = 'Beta'
+__copyright__ = '(c) 2009-2010 %s' % __author__
+__license__ = 'GPL-2'
+__version__ = '1.0rc3+'
 
 
 import discretization
