@@ -7,7 +7,7 @@
     
     This module implements some data types for the Control Systems.
     
-    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :copyright: 2009-2010 by Rafael Goncalves Martins
     :license: GPL-2, see LICENSE for more details.
 """
 

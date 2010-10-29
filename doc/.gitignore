@@ -1,0 +1,7 @@
+_build/*
+_templates/*
+_static/*
+
+!_build/.keep
+!_templates/.keep
+!_static/.keep

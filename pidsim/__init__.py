@@ -8,7 +8,7 @@
     This package implements a basic toolbox for the study of the Control
     Systems and simulate PID controllers using Python.
 
-    :copyright: (c) 2009-2010 by Rafael Goncalves Martins
+    :copyright: 2009-2010 by Rafael Goncalves Martins
     :license: GPL-2, see LICENSE for more details.
 """
 
