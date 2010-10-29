@@ -1,3 +1,6 @@
 include LICENSE
+include README.rst
 include MANIFEST.in
-include doc/Makefile 
+recursive-include doc *
+prune doc/_build/
+include doc/_build/.keep
