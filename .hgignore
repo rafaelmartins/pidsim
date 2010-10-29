@@ -1,5 +1,0 @@
-^(build|dist)/
-^doc/.*/(html|pdf)
-\.tar\.gz$
-\.py[co]$
-^MANIFEST$
