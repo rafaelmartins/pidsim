@@ -1,17 +1,20 @@
 .. PIDSIM documentation master file, created by
    sphinx-quickstart on Fri Oct 29 16:46:33 2010.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-Welcome to PIDSIM's documentation!
-==================================
+.. include:: ../README.rst
 
-Contents:
+
+API documentation
+~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
 
-   api 
+   discretization
+   error
+   pid_simulation
+   types
+
 
 
 Indices and tables

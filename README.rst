@@ -20,11 +20,15 @@ All the help is welcome! :)
 
 
 Basic installation
-------------------
+~~~~~~~~~~~~~~~~~~
 
 To install, type::
 
     # python setup.py install
+
+or use pip::
+
+    # pip install pidsim
 
 To build doc (you'll need sphinx), type::
 
