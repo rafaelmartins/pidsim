@@ -29,7 +29,7 @@ class Polynomial(list):
     """Polynomial type
     
     This class implements the Polynomial type, based on the Python lists.
-    The Polynomial object is a list of coeficients. For example:
+    The Polynomial object is a list of coeficients. For example::
     
         >>> a = Polynomial([1, 2, 3])
         >>> print a
@@ -43,7 +43,7 @@ class Polynomial(list):
         """String representation
         
         This method returns the string representation of polynomials.
-        For example:
+        For example::
         
             x^2 + 2x + 3
         
@@ -90,7 +90,7 @@ class Polynomial(list):
         
         This method returns a Polynomial object with the result of the
         addition of the Polynomial 'self' and the Polynomial 'term'.
-        For example:
+        For example::
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = Polynomial([2, 3, 4])
@@ -134,7 +134,7 @@ class Polynomial(list):
         
         This method returns a Polynomial object with the result of the
         subtraction of the Polynomial 'self' and the Polynomial 'term'.
-        For example:
+        For example::
         
             >>> a = Polynomial([2, 3, 4])
             >>> b = Polynomial([1, 2, 3])
@@ -158,7 +158,7 @@ class Polynomial(list):
         
         This method returns a Polynomial object with the result of the
         multiplication of the Polynomial 'self' and the Polynomial
-        'term'. For example:
+        'term'. For example::
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = Polynomial([2, 3, 4])
@@ -229,7 +229,7 @@ class Polynomial(list):
         
         This method returns a Polynomial object with the result of the
         multiplication of the Polynomial 'self' and the number 'val'.
-        For example:
+        For example::
         
             >>> a = Polynomial([1, 2, 3])
             >>> b = a.mult(5)
@@ -254,7 +254,7 @@ class Polynomial(list):
         """Auxiliary method
         
         This method returns a Polynomial object initialized with zeros.
-        For example:
+        For example::
         
             >>> a = Polynomial()
             >>> a.Zero(4)
@@ -278,7 +278,7 @@ class Matrix(list):
     
     This class implements the Matrix type, based on the Python lists.
     The matrix object is a list of lists and have 2 properties ('cols'
-    and 'rows'), that store the sizes of the matrix. For example:
+    and 'rows'), that store the sizes of the matrix. For example::
     
         >>> a = Matrix([
         ...     [1, 2, 3],
@@ -325,7 +325,7 @@ class Matrix(list):
         """String representation
         
         This method returns the string representation of matrices. For
-        example:
+        example::
         
             1    2    3
             2    3    4
@@ -348,7 +348,7 @@ class Matrix(list):
         """Callable object
         
         This method returns a row Matrix object if a parameter is used
-        and a number if two parameters are used. For example:
+        and a number if two parameters are used. For example::
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -379,7 +379,7 @@ class Matrix(list):
         """Operation of addition
         
         This method returns a Matrix object with the result of the
-        addition of the Matrix 'self' and the Matrix 'mat'. For example:
+        addition of the Matrix 'self' and the Matrix 'mat'. For example::
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -427,7 +427,7 @@ class Matrix(list):
         
         This method returns a Matrix object with the result of the
         subtraction of the Matrix 'self' and the Matrix 'mat'. For
-        example:
+        example::
         
             >>> a = Matrix([
             ...     [2, 3],
@@ -461,7 +461,7 @@ class Matrix(list):
         
         This method returns a Matrix object with the result of the
         multiplication of the Matrix 'self' and the Matrix 'mat'. For
-        example:
+        example::
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -504,7 +504,7 @@ class Matrix(list):
         
         This method returns a Matrix object with the result of the
         multiplication of the Matrix 'self' and the number 'num'. For
-        example:
+        example::
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -535,7 +535,7 @@ class Matrix(list):
         """Transpose of matrix
         
         This method returns a Matrix object with the transpose of
-        the Matrix 'self'. For example:
+        the Matrix 'self'. For example::
         
             >>> a = Matrix([
             ...     [1, 2],
@@ -565,7 +565,7 @@ mat = Matrix
 def ZerosMatrix(rows, cols=None):
     """Matrix of zeros
         
-    This method returns a Matrix object filled by zeros. For example:
+    This method returns a Matrix object filled by zeros. For example::
     
         >>> a = ZerosMatrix(2, 4)
         >>> print a
@@ -599,7 +599,7 @@ zeros = ZerosMatrix
 def ZerosPolynomial(order):
     """Polynomial of zeros
         
-    This method returns a Polynomial object filled by zeros. For example:
+    This method returns a Polynomial object filled by zeros. For example::
     
         >>> a = ZerosPolynomial(3)
         >>> print list(a)
@@ -617,7 +617,7 @@ def IdentityMatrix(order):
     """Matrix Identity
         
     This method returns a Matrix object with zeros, and ones only on
-    main diagonal. For example:
+    main diagonal. For example::
     
         >>> a = IdentityMatrix(4)
         >>> print a
@@ -650,13 +650,13 @@ class TransferFunction(object):
     
     This class implements the TransferFunction type, based on the
     Polynomial type. The TransferFunction object uses 2 polynomials
-    to store the numerator and the denominator. For example:
+    to store the numerator and the denominator. For example::
     
         >>> a = TransferFunction([1], [1, 2, 3])
         >>> print a
         Transfer Function:
-        .
-        .    1      
+        
+             1      
         ------------
         s^2 + 2s + 3
 
@@ -680,11 +680,11 @@ class TransferFunction(object):
         """String representation
         
         This method returns the string representation of the transfer
-        functions. For example:
+        functions. For example::
         
             Transfer Function:
-            .
-            .     1      
+            
+                 1      
             ------------
             s^2 + 2s + 3
         
@@ -706,18 +706,18 @@ class TransferFunction(object):
         
         This method returns a TransferFunction object with the result
         of the addition of the TransferFunction 'self' and  the
-        TransferFunction 'tf'. For example:
+        TransferFunction 'tf'. For example::
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
             >>> c = a + b
             >>> print c
             Transfer Function:
-            .
-            .        3s^2 + 5s + 7         
+            
+                    3s^2 + 5s + 7         
             ------------------------------
             2s^4 + 7s^3 + 16s^2 + 17s + 12
-            .
+            
             >>> type(c)
             <class 'pidsim.types.TransferFunction'>
         
@@ -733,18 +733,18 @@ class TransferFunction(object):
         
         This method returns a TransferFunction object with the result
         of the subtraction of the TransferFunction 'self' and the
-        TransferFunction 'tf'. For example:
+        TransferFunction 'tf'. For example::
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
             >>> c = a - b
             >>> print c
             Transfer Function:
-            .
-            .         s^2 + s + 1          
+            
+                     s^2 + s + 1          
             ------------------------------
             2s^4 + 7s^3 + 16s^2 + 17s + 12
-            .
+            
             >>> type(c)
             <class 'pidsim.types.TransferFunction'>
         
@@ -761,15 +761,15 @@ class TransferFunction(object):
         
         This method returns a TransferFunction object with the result
         of the multiplication of the TransferFunction 'self'and the
-        TransferFunction 'tf'. for example:
+        TransferFunction 'tf'. for example::
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = TransferFunction([1], [2, 3, 4])
             >>> c = a * b
             >>> print c
             Transfer Function:
-            .
-            .              1               
+            
+                          1               
             ------------------------------
             2s^4 + 7s^3 + 16s^2 + 17s + 12
             .
@@ -788,29 +788,31 @@ class TransferFunction(object):
         """Simplify Transfer Functions
         
         This method returns a TransferFunction object with the transfer
-        function simplified. For example:
+        function simplified. For example::
         
             >>> a = TransferFunction([3], [3, 6, 9])
             >>> print a
             Transfer Function:
-            .
-            .      3      
+            
+                  3      
             -------------
             3s^2 + 6s + 9
-            .
+            
             >>> b = a.simplify()
             >>> print b
             Transfer Function:
-            .
-            .     1      
+            
+                 1      
             ------------
             s^2 + 2s + 3
-            .
+            
             >>> type(b)
             <class 'pidsim.types.TransferFunction'>
         
-        Attention: This method is far from perfect, and don't simplify
-        all possible expressions, but it's usable.
+        .. warning::
+            
+            This method is far from perfect, and don't simplify all
+            possible expressions, but it's usable.
         
         """
         
@@ -850,14 +852,14 @@ class TransferFunction(object):
         
         This method returns a TransferFunction object with the result
         of the multiplication of the TransferFunction 'self' and the
-        number 'a'. For example:
+        number 'a'. For example::
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = a.mult(5)
             >>> print b
             Transfer Function:
-            .
-            .       5       
+            
+                   5       
             ---------------
             5s^2 + 10s + 15
             
@@ -876,24 +878,24 @@ class TransferFunction(object):
         
         This method returns a TransferFunction object with the result
         of the division of the coefficients of the TransferFunction
-        'self' and the number 'a'. For example:
+        'self' and the number 'a'. For example::
         
             >>> a = TransferFunction([3], [3, 6, 9])
             >>> print a
             Transfer Function:
-            .
-            .      3      
+            
+                  3      
             -------------
             3s^2 + 6s + 9
-            .
+            
             >>> b = a.div(3)
             >>> print b
             Transfer Function:
-            .
-            .     1      
+            
+                 1      
             ------------
             s^2 + 2s + 3
-            .
+            
             >>> type(b)
             <class 'pidsim.types.TransferFunction'>
         
@@ -915,17 +917,17 @@ class TransferFunction(object):
         """Feedback with unit gain
         
         This method returns a TransferFunction object with the result
-        of the unit gain feedback of the transfer function. For example:
+        of the unit gain feedback of the transfer function. For example::
         
             >>> a = TransferFunction([1], [1, 2, 3])
             >>> b = a.feedback_unit()
             >>> print b
             Transfer Function:
-            .
-            .         s^2 + 2s + 3        
+            
+                     s^2 + 2s + 3        
             -----------------------------
             s^4 + 4s^3 + 11s^2 + 14s + 12
-            .
+            
             >>> type(b)
             <class 'pidsim.types.TransferFunction'>
         
@@ -946,24 +948,24 @@ class StateSpace(object):
     """StateSpace type
     
     This class implements the StateSpace type, based on the Matrix type.
-    The state-space object uses 4 matrices, like:
+    The state-space object uses 4 matrices, like::
     
         >>> tf = TransferFunction([1], [1, 2, 3])
         >>> a = StateSpace(tf)
         >>> print a
         State-Space model:
-        .
+        
         Matrix A:
         0     1
         -3   -2
-        .
+        
         Matrix B:
         0
         1
-        .
+        
         Matrix C:
         1    0
-        .
+        
         Matrix D:
         0
 
@@ -1075,21 +1077,21 @@ class StateSpace(object):
         """String representation
         
         This method returns the string representation of the state-space
-        models. For example:
+        models. For example::
         
             State-Space model:
-            .
+            
             Matrix A:
             0     1
             -3   -2
-            .
+            
             Matrix B:
             0
             1
-            .
+            
             Matrix C:
             1    0
-            .
+            
             Matrix D:
             0
         

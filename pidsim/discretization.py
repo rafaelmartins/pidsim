@@ -27,7 +27,7 @@ def Euler(g, sample_time, total_time):
     
     Returns the points of the step response of the transfer function 'g',
     discretized with the Euler method, using the sample time 'sample_time'
-    on 'total_time' seconds. For example:
+    on 'total_time' seconds. For example::
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = Euler(g, 0.01, 10)
@@ -67,7 +67,7 @@ def RungeKutta2(g, sample_time, total_time):
     
     Returns the points of the step response to the transfer function 'g',
     discretized with the Runge Kutta (order 2) method, using the sample
-    time 'sample_time' on 'total_time' seconds. For example:
+    time 'sample_time' on 'total_time' seconds. For example::
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = RungeKutta2(g, 0.01, 10)
@@ -112,7 +112,7 @@ def RungeKutta3(g, sample_time, total_time):
     
     Returns the points of the step response to the transfer function 'g',
     discretized with the Runge Kutta (order 3) method, using the sample
-    time 'sample_time' on 'total_time' seconds. For example:
+    time 'sample_time' on 'total_time' seconds. For example::
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = RungeKutta3(g, 0.01, 10)
@@ -167,7 +167,7 @@ def RungeKutta4(g, sample_time, total_time):
     
     Returns the points of the step response to the transfer function 'g',
     discretized with the Runge Kutta (order 4) method, using the sample
-    time 'sample_time' on 'total_time' seconds. For example:
+    time 'sample_time' on 'total_time' seconds. For example::
     
         >>> g = TransferFunction([1], [1, 2, 3])
         >>> t, y = RungeKutta4(g, 0.01, 10)
