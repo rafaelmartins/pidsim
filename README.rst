@@ -1,6 +1,10 @@
 PIDSIM core package
 ===================
 
+.. warning::
+
+   This package just have the python modules, not any GUI.
+
 This package implements a basic toolbox for the study of the Control
 Systems and the simulation of PID controllers, using Python.
 

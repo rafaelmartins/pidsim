@@ -17,11 +17,11 @@
 __all__ = ['discretization', 'error', 'pid_simulation', 'types']
 __author__ = 'Rafael Goncalves Martins'
 __email__ = 'rafael@rafaelmartins.eng.br'
-__description__ = 'PID Controllers simulator'
+__description__ = 'PID Controllers simulator (core)'
 __url__ = 'http://pidsim.org/'
 __copyright__ = '(c) 2009-2010 %s' % __author__
 __license__ = 'GPL-2'
-__version__ = '1.0rc3+'
+__version__ = '1.0rc4'
 
 
 import discretization
