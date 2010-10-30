@@ -21,9 +21,10 @@ __description__ = 'PID Controllers simulator (core)'
 __url__ = 'http://pidsim.org/'
 __copyright__ = '(c) 2009-2010 %s' % __author__
 __license__ = 'GPL-2'
-__version__ = '1.0rc4'
+__version__ = '1.0rc4+'
 
 
+import approximation
 import discretization
 import error
 import pid_simulation

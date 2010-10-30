@@ -23,6 +23,8 @@ __all__ = [
 from pidsim.types import poly, tf
 
 def Pade1(t):
+    """First order Pade approximation"""
+    
     num = poly([-t, 2])
     den = poly([t, 2])
     num = num.mult(1.0/den[0])
@@ -31,6 +33,7 @@ def Pade1(t):
 
 
 def Pade2(t):
+    """Second order Pade approximation"""
     num = poly([t*t, -6*t, 12])
     den = poly([t*t, 6*t, 12])
     num = num.mult(1.0/den[0])
@@ -39,6 +42,7 @@ def Pade2(t):
 
 
 def Pade3(t):
+    """Third order Pade approximation"""
     num = poly([-t*t*t, 12*t*t, -60*t, 120])
     den = poly([t*t*t, 12*t*t, 60*t, 120])
     num = num.mult(1.0/den[0])
@@ -47,6 +51,7 @@ def Pade3(t):
 
 
 def Pade4(t):
+    """Fourth order Pade approximation"""
     num = poly([t*t*t*t, -20*t*t*t, 180*t*t, -840*t, 1680])
     den = poly([t*t*t*t, 20*t*t*t, 180*t*t, 840*t, 1680])
     num = num.mult(1.0/den[0])
@@ -55,6 +60,7 @@ def Pade4(t):
 
 
 def Pade5(t):
+    """Fifth order Pade approximation"""
     num = poly([-t*t*t*t*t, 30*t*t*t*t, -420*t*t*t, 3360*t*t, -15120*t, 30240])
     den = poly([t*t*t*t*t, 30*t*t*t*t, 420*t*t*t, 3360*t*t, 15120*t, 30240])
     num = num.mult(1.0/den[0])

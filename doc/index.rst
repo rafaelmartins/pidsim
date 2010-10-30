@@ -10,6 +10,7 @@ API documentation
 .. toctree::
    :maxdepth: 2
 
+   approximation
    discretization
    error
    pid_simulation

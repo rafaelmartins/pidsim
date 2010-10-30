@@ -1,0 +1,2 @@
+.. automodule:: pidsim.approximation
+   :members:
