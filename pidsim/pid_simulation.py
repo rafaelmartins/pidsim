@@ -26,7 +26,7 @@ __all__ = [
     'ChienHronesReswick0',
     'ChienHronesReswick20',
     'get_time_near',
-    'tuning_rule',
+    'tuning_line',
 ]
 
 
@@ -201,7 +201,7 @@ def get_time_near(t, y, point):
     return my_t
 
 
-def tuning_rule(t, y):
+def tuning_line(t, y):
     """Reaction curve tuning rule"""
     
     k = y[-1]
