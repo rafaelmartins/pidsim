@@ -1,6 +1,9 @@
+syntax: glob
+
 # python stuff
 *.py[co]
 build
 dist
+doc
 pidsim.egg-info
 MANIFEST
