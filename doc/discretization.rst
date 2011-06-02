@@ -1,2 +1,2 @@
-.. automodule:: pidsim.discretization
+.. automodule:: pidsim.core.discretization
    :members:

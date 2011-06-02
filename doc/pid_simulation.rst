@@ -1,2 +1,2 @@
-.. automodule:: pidsim.pid_simulation
+.. automodule:: pidsim.core.pid_simulation
    :members:

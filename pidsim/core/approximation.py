@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim.approximation
-    ~~~~~~~~~~~~~~~~~~~~
+    pidsim.core.approximation
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Implementation of Pade's approximation method.
     
@@ -20,7 +20,7 @@ __all__ = [
     'Pade5',
 ]
 
-from pidsim.types import poly, tf
+from pidsim.core.types import poly, tf
 
 def Pade1(t):
     """First order Pade approximation"""

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim.types
-    ~~~~~~~~~~~~
+    pidsim.core.types
+    ~~~~~~~~~~~~~~~~~
 
     Data Types for Control Systems
     
@@ -22,7 +22,7 @@ __all__ = [
     'StateSpace', 'ss',
 ]
 
-from pidsim.error import ControlSystemsError
+from pidsim.core.error import ControlSystemsError
 
 
 class Polynomial(list):

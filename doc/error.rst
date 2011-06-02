@@ -1,2 +1,2 @@
-.. automodule:: pidsim.error
+.. automodule:: pidsim.core.error
    :members:

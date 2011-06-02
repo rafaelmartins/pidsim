@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim.pid_simulation
-    ~~~~~~~~~~~~~~~~~~~~~
+    pidsim.core.pid_simulation
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     PID Controller simulation methods.
     

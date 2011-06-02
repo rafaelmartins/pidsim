@@ -1,2 +1,2 @@
-.. automodule:: pidsim.types
+.. automodule:: pidsim.core.types
    :members:

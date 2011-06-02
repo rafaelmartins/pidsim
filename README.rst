@@ -10,10 +10,10 @@ Systems and the simulation of PID controllers, using Python.
 
 To use the examples, please initialize this package, using::
 
-    >>> from pidsim.types import *
-    >>> from pidsim.discretization import *
-    >>> from pidsim.pid_simulation import *
-    >>> from pidsim.error import *
+    >>> from pidsim.core.types import *
+    >>> from pidsim.core.discretization import *
+    >>> from pidsim.core.pid_simulation import *
+    >>> from pidsim.core.error import *
 
 If you need some help with the use, or can help with the development,
 please contact the author via email or visit our project website:

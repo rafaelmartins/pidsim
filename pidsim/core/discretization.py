@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim.discretization
-    ~~~~~~~~~~~~~~~~~~~~~
+    pidsim.core.discretization
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Transfer Function discretization methods.
     
@@ -17,8 +17,8 @@
 
 __all__ = ['Euler', 'RungeKutta2', 'RungeKutta3', 'RungeKutta4']
 
-from pidsim.error import ControlSystemsError
-from pidsim.types import Matrix, ZerosMatrix, IdentityMatrix, \
+from pidsim.core.error import ControlSystemsError
+from pidsim.core.types import Matrix, ZerosMatrix, IdentityMatrix, \
     TransferFunction, StateSpace
 
 

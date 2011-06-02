@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim
-    ~~~~~~
+    pidsim.core
+    ~~~~~~~~~~~
 
-    Main package of pidsim.
+    Core package of pidsim.
     
     This package implements a basic toolbox for the study of the Control
     Systems and simulate PID controllers using Python.
