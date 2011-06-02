@@ -68,7 +68,7 @@ def Pade5(t):
     return tf(num, den)
 
 
-methods = {
+index = {
     1: Pade1,
     2: Pade2,
     3: Pade3,
