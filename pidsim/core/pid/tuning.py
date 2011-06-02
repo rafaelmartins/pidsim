@@ -24,153 +24,81 @@ __all__ = [
     'ChienHronesReswick20',
 ]
 
-from pidsim.core.helpers import get_time_near
+from pidsim.core.error import ControlSystemsError
 
 
-def ZieglerNichols(g, sample_time, total_time, n_method):
-    """ZieglerNichols tuning method
+class TuningMethod:
     
-    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
-    the Ziegler-Nichols tuning method, based on the reaction curve. For
-    example (using Euler to discretize)::
+    def __init__(self, t, y, i_method):
+        self.t = t
+        self.y = y
+        self.k = y[-1]
+        self.ident = i_method(t, y)
     
-        >>> g = TransferFunction([1], [1, 2, 3])
-        >>> kp, ki, kd = ZieglerNichols(g, 0.01, 10, Euler)
-        >>> print kp
-        7.25920108978
-        >>> print ki
-        11.9003296554
-        >>> print kd
-        1.10702816619
+    @property
+    def times(self):
+        p1, p2 = self.ident.points
+        return p1[0], p2[0]
     
-    """
+    @property
+    def tau(self):
+        t1, t2 = self.times
+        return 1.5 * (t2 - t1)
     
-    t, y = n_method(g, sample_time, total_time)
+    @property
+    def Tm(self):
+        t1, t2 = self.times
+        return 1.5 * (t1 - (t2 / 3))
     
-    k = y[-1]
-    
-    t63 = get_time_near(t, y, 0.632*k)
-    t28 = get_time_near(t, y, 0.28*k)
-    tau = 1.5*(t63-t28)
-    L = 1.5*(t28-(t63/3))
-    
-    kp = (1.2*tau)/(k*L)
-    Ti = 2*L
-    Td = L/2
-    
-    ki = kp/Ti
-    kd = kp*Td
-    
-    return kp, ki, kd
+    @property
+    def gains(self):
+        raise NotImplementedError
+        
+
+class ZieglerNichols(TuningMethod):
+
+    @property
+    def gains(self):
+        kp = (1.2 * self.tau) / (self.k * self.Tm)
+        Ti = 2 * self.Tm
+        Td = self.Tm / 2
+        ki = kp / Ti
+        kd = kp * Td
+        return kp, ki, kd
 
 
-def CohenCoon(g, sample_time, total_time, n_method):
-    """CohenCoon tuning method
+class CohenCoon(TuningMethod):
     
-    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
-    the Cohen-Coon tuning method, based on the reaction curve. For
-    example (using Euler to discretize)::
-    
-        >>> g = TransferFunction([1], [1, 2, 3])
-        >>> kp, ki, kd = CohenCoon(g, 0.01, 10, Euler)
-        >>> print kp
-        5.38204782425
-        >>> print ki
-        8.56051231163
-        >>> print kd
-        1.26879134141
-    
-    """
-    
-    t, y = n_method(g, sample_time, total_time)
-    
-    k = y[-1]
-    
-    t63 = get_time_near(t, y, 0.632*k)
-    t28 = get_time_near(t, y, 0.28*k)
-    tau = 1.5*(t63-t28)
-    L = 1.5*(t28-(t63/3))
-    
-    R = L/tau
-    kp = tau/(k*L*((4/3)+(R/4)))
-    Ti = L*((32 + 6*R)/(13 + 8*R))
-    Td = 4/(13 + 8*R)
-    
-    ki = kp/Ti
-    kd = kp*Td
-    
-    return kp, ki, kd
+    @property
+    def gains(self):
+        R = self.Tm / self.tau
+        kp = self.tau / (self.k * self.Tm * ((4/3) + (R / 4)))
+        Ti = self.Tm * ((32 + 6*R)/(13 + 8*R))
+        Td = 4 / (13 + 8*R)
+        ki = kp / Ti
+        kd = kp * Td
+        return kp, ki, kd
 
 
-def ChienHronesReswick0(g, sample_time, total_time, n_method):
-    """ChienHronesReswick0 tuning method
-    
-    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
-    the Chien-Hrones-Reswick (0%) tuning method, based on the reaction
-    curve. For example (using Euler to discretize)::
-    
-        >>> g = TransferFunction([1], [1, 2, 3])
-        >>> kp, ki, kd = ChienHronesReswick0(g, 0.01, 10, Euler)
-        >>> print kp
-        3.62960054489
-        >>> print ki
-        5.90178950389
-        >>> print kd
-        0.553514083096
-    
-    """
-    
-    t, y = n_method(g, sample_time, total_time)
-    
-    k = y[-1]
-    
-    t63 = get_time_near(t, y, 0.632*k)
-    t28 = get_time_near(t, y, 0.28*k)
-    tau = 1.5*(t63-t28)
-    L = 1.5*(t28-(t63/3))
-    
-    kp = (0.6*tau)/(k*L)
-    Ti = tau
-    Td = L/2
-    
-    ki = kp/Ti
-    kd = kp*Td
-    
-    return kp, ki, kd
+class ChienHronesReswick0(TuningMethod):
+
+    @property
+    def gains(self):
+        kp = (0.6 * self.tau) / (self.k * self.Tm)
+        Ti = self.tau
+        Td = self.Tm / 2
+        ki = kp / Ti
+        kd = kp * Td
+        return kp, ki, kd
 
 
-def ChienHronesReswick20(g, sample_time, total_time, n_method):
-    """ChienHronesReswick20 tuning method
+class ChienHronesReswick20(TuningMethod):
     
-    Returns the 'kp', 'ki' and 'kd' gains to a PID controller, using
-    the Chien-Hrones-Reswick (20%) tuning method, based on the reaction
-    curve. For example (using Euler to discretize)::
-    
-        >>> g = TransferFunction([1], [1, 2, 3])
-        >>> kp, ki, kd = ChienHronesReswick20(g, 0.01, 10, Euler)
-        >>> print kp
-        5.74686752941
-        >>> print ki
-        6.6746428913
-        >>> print kd
-        0.823813460341
-    
-    """
-    
-    t, y = n_method(g, sample_time, total_time)
-    
-    k = y[-1]
-    
-    t63 = get_time_near(t, y, 0.632*k)
-    t28 = get_time_near(t, y, 0.28*k)
-    tau = 1.5*(t63-t28)
-    L = 1.5*(t28-(t63/3))
-    
-    kp = (0.95*tau)/(k*L)
-    Ti = 1.4*tau
-    Td = 0.47*L
-    
-    ki = kp/Ti
-    kd = kp*Td
-    
-    return kp, ki, kd
+    @property
+    def gains(self):
+        kp = (0.95 * self.tau) / (self.k * self.Tm)
+        Ti = 1.4 * self.tau
+        Td = 0.47 * self.Tm
+        ki = kp / Ti
+        kd = kp * Td
+        return kp, ki, kd
