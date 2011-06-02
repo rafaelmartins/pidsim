@@ -14,7 +14,10 @@ setup(
     author_email = pidsim.__email__,
     url = pidsim.__url__,
     platforms = 'any',
-    packages = ['pidsim.core'],
+    packages = [
+        'pidsim.core',
+        'pidsim.core.pid',
+    ],
     namespace_packages = ['pidsim'],
     zip_safe = False,
     classifiers=[

@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-    pidsim.core.pid_simulation
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    pidsim.core.pid.tuning
+    ~~~~~~~~~~~~~~~~~~~~~~
 
-    PID Controller simulation methods.
+    PID Controller tuning methods.
     
     This module implements some PID tuning methods for simulation, based
     on the reaction curve. Take care to choose a total time after the
     system stabilization for now.
-    
-    For a quick reference about PID controllers, see:
-    http://wikis.controltheorypro.com/index.php?title=PID_Control
     
     :copyright: 2009-2010 by Rafael Goncalves Martins
     :license: GPL-2, see LICENSE for more details.
@@ -25,9 +22,9 @@ __all__ = [
     'CohenCoon',
     'ChienHronesReswick0',
     'ChienHronesReswick20',
-    'get_time_near',
-    'tuning_line',
 ]
+
+from pidsim.core.helpers import get_time_near
 
 
 def ZieglerNichols(g, sample_time, total_time, n_method):
@@ -177,46 +174,3 @@ def ChienHronesReswick20(g, sample_time, total_time, n_method):
     kd = kp*Td
     
     return kp, ki, kd
-
-
-def get_time_near(t, y, point):
-    """Get time near
-    
-    Auxiliary function.
-    Returns the time 't' of the point 'y' more near of the desired
-    point 'point'.
-    
-    """
-    
-    tolerance_range = max(y) - min(y)
-    
-    for i in range(len(y)):
-        
-        tolerance = abs(y[i] - point)
-        
-        if tolerance < tolerance_range:
-            my_t = t[i]
-            tolerance_range = tolerance
-    
-    return my_t
-
-
-def tuning_line(t, y):
-    """Reaction curve tuning rule"""
-    
-    k = y[-1]
-    
-    y28 = 0.28*k
-    y63 = 0.632*k
-    yp = max(y)
-    
-    t28 = get_time_near(t, y, y28)
-    t63 = get_time_near(t, y, y63)
-    
-    alpha = (t63 - t28)/(y63 - y28)
-    
-    t0 = t28 - (y28 * alpha)
-    tp = t63 + ((yp - y63) * alpha)
-    
-    return [t0, t28, t63, tp], [0, y28, y63, yp]
-    

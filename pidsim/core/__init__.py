@@ -14,7 +14,7 @@
 
 #TODO: write unit tests and docs
 
-__all__ = ['discretization', 'error', 'pid_simulation', 'types']
+__all__ = ['discretization', 'error', 'helpers', 'pade', 'pid', 'types']
 __author__ = 'Rafael Goncalves Martins'
 __email__ = 'rafael@rafaelmartins.eng.br'
 __description__ = 'PID Controllers simulator (core)'
@@ -24,8 +24,9 @@ __license__ = 'GPL-2'
 __version__ = '1.0rc6'
 
 
-import approximation
 import discretization
 import error
-import pid_simulation
+import helpers
+import pade
+import pid
 import types
