@@ -15,7 +15,8 @@ setup(
     url = pidsim.__url__,
     platforms = 'any',
     packages = [
-        'pidsim.core',
+        'pidsim',
+	'pidsim.core',
         'pidsim.core.pid',
     ],
     namespace_packages = ['pidsim'],
