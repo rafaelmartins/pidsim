@@ -18,7 +18,7 @@ To use the examples, please initialize this package, using::
 If you need some help with the use, or can help with the development,
 please contact the author via email or visit our project website:
 
-http://pidsim.org/
+https://github.com/rafaelmartins/pidsim
 
 All the help is welcome! :)
 
